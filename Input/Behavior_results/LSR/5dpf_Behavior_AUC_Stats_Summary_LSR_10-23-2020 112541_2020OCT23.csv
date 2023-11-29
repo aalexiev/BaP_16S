@@ -1,0 +1,5 @@
+"chemical.id","chemical.name","conc","units","count","org_ss","perc","ss_more_70perc","AUC","PercDiff","AUC.Pval","significance p<0.01","significance p<0.01 and 50% cutoff","activity","Comments"
+"1174","Benzo[a]pyrene",0,"",128,143,0.9,TRUE,53.499,0,1,NA,NA,NA,NA
+"1174","Benzo[a]pyrene",1,"",129,144,0.9,TRUE,45.975,-14.065,0.418,NA,NA,NA,NA
+"1174","Benzo[a]pyrene",10,"",143,144,0.99,TRUE,59.486,11.191,0.994,NA,NA,NA,NA
+"1174","Benzo[a]pyrene",5,"",132,142,0.93,TRUE,49.629,-7.234,0.418,NA,NA,NA,NA

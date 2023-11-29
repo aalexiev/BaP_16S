@@ -1,0 +1,4 @@
+"chemical.id","chemical.name","Interval","total.no.conc","no.conc.used.for.analysis","no.conc.w.sig.hits","LEL"
+"1174","Benzo[a]pyrene","B",4,4,0,NA
+"1174","Benzo[a]pyrene","E",4,4,2,5
+"1174","Benzo[a]pyrene","R",4,4,0,NA

@@ -1,0 +1,9 @@
+"chemical.id","conc","chemical.name","count","org_ss","perc","ss_more_70perc","interval","AUC","Pval","RelativeRatio","significance p<0.01","activity","Sig"
+"1174",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Dark",3.255,1,0,NA,NA,NA
+"1174",1,"Benzo[a]pyrene",128,143,0.9,TRUE,"Dark",27.247,0,0.315,"YES","HYPER","YES"
+"1174",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Dark",26.492,0,0,"YES",NA,NA
+"1174",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Dark",33.367,0.013,0.223,NA,NA,NA
+"1174",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Light",-71.154,1,0,NA,NA,NA
+"1174",1,"Benzo[a]pyrene",128,143,0.9,TRUE,"Light",2.286,0.004,-1.005,"YES","HYPO","YES"
+"1174",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Light",16.254,0.124,-0.61,NA,NA,NA
+"1174",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Light",24.565,0.001,-1.183,"YES","HYPO","YES"

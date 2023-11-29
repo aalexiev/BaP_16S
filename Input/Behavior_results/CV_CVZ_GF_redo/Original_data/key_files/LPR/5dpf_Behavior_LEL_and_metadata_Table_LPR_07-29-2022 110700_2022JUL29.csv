@@ -1,0 +1,3 @@
+"chemical.id","bottle.id","chemical.name","ss_more_70perc","no.conc.used","total.no.conc","interval","Sig","no.conc.sig.hits","conc_response","hit","LEL"
+"1174","P215706","Benzo[a]pyrene",TRUE,4,4,"Dark","YES",2,"YES",NA,NA
+"1174","P215706","Benzo[a]pyrene",TRUE,4,4,"Light","YES",1,"YES",NA,NA

@@ -1,0 +1,2 @@
+"chemical.id","bottle.id","chemical.name","casrn","date","Fail_QC","MO24","MORT","any.effect","Movement.peak","no.epr.hit","AUC","comment"
+1174,"P215706","Benzo[a]pyrene",NA,20220506,"Fail_LPR_QC",NA,NA,NA,16.3563833364362,1,126.108,"ctrl too active in the dark"

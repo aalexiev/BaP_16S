@@ -1,0 +1,17 @@
+"chemical.id","bottle.id","conc","chemical.name","count","org_ss","perc","ss_more_70perc","interval","epoch","AUC","Pval","RelativeRatio","significance p<0.01","activity","Sig"
+"1174","P737470",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Dark","1",3.255,1,0,NA,NA,NA
+"1174","P737470",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Dark","3",-24.169,1,0,NA,NA,NA
+"1174","P737470",1,"Benzo[a]pyrene",129,144,0.9,TRUE,"Dark","1",27.212,0,0.315,"YES","HYPER","YES"
+"1174","P737470",1,"Benzo[a]pyrene",129,144,0.9,TRUE,"Dark","3",-27.695,0.01,-0.159,"YES","HYPO","YES"
+"1174","P737470",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Dark","1",26.469,0,0,"YES",NA,NA
+"1174","P737470",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Dark","3",-22.746,0,-0.1,"YES","HYPO","YES"
+"1174","P737470",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Dark","1",33.35,0.013,0.223,NA,NA,NA
+"1174","P737470",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Dark","3",-21.406,0,0.075,"YES",NA,NA
+"1174","P737470",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Light","1",-71.154,1,0,NA,NA,NA
+"1174","P737470",0,"Benzo[a]pyrene",128,143,0.9,TRUE,"Light","3",-123.096,1,0,NA,NA,NA
+"1174","P737470",1,"Benzo[a]pyrene",129,144,0.9,TRUE,"Light","1",2.234,0.004,-1.003,"YES","HYPO","YES"
+"1174","P737470",1,"Benzo[a]pyrene",129,144,0.9,TRUE,"Light","3",-57.877,0.082,0.018,NA,NA,NA
+"1174","P737470",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Light","1",16.226,0.124,-0.61,NA,NA,NA
+"1174","P737470",5,"Benzo[a]pyrene",132,142,0.93,TRUE,"Light","3",-40.749,0,-0.245,"YES","HYPO","YES"
+"1174","P737470",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Light","1",24.545,0.001,-1.183,"YES","HYPO","YES"
+"1174","P737470",10,"Benzo[a]pyrene",143,144,0.99,TRUE,"Light","3",-35.939,0.329,-0.065,NA,NA,NA

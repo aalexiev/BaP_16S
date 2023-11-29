@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>table output</title>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body>
+<table>
+<caption>Supplemental Table 8. PERMANOVA models testing the association between beta-diversity scores and
+BaP exposure, LPR AUC scores.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Beta.metric </th>
+   <th style="text-align:right;"> Cycle </th>
+   <th style="text-align:right;"> Term </th>
+   <th style="text-align:right;"> Df </th>
+   <th style="text-align:right;"> SumOfSqs </th>
+   <th style="text-align:right;"> Statistic </th>
+   <th style="text-align:left;"> P.value </th>
+   <th style="text-align:center;"> Sig </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> Bray-Curtis </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:right;"> BaP_uM </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="2"> 1 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 1.429 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> LPR.light.auc </td>
+   
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 2.021 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 402 </td>
+   <td style="text-align:right;"> 176.91 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> Canberra </td>
+   
+   <td style="text-align:right;"> LPR.light.auc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 1.228 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 185.47 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="2"> dark </td>
+   <td style="text-align:right;"> LPR.dark.auc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 1.178 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 185.49 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> Sørensen </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="2"> light </td>
+   <td style="text-align:right;"> LPR.light.auc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.61 </td>
+   <td style="text-align:right;"> 1.753 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 140.31 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="6"> dark </td>
+   <td style="text-align:right;"> LPR.dark.auc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 1.602 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 140.37 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> Weighted UniFrac </td>
+   
+   <td style="text-align:right;"> BaP_uM </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="3"> 1 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 1.129 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 1.351 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> BaP_uM:LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 1.849 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 401 </td>
+   <td style="text-align:right;"> 8.30 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="6"> Half-weighted UniFrac </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="2"> light </td>
+   <td style="text-align:right;"> LPR.light.auc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 1.357 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 35.77 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="4"> dark </td>
+   <td style="text-align:right;"> BaP_uM </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="3"> 1 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 1.414 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 1.417 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> BaP_uM:LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 1.596 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 401 </td>
+   <td style="text-align:right;"> 35.49 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="7"> Unweighted UniFrac </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="3"> light </td>
+   <td style="text-align:right;"> BaP_uM </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="2"> 1 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 1.363 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> LPR.light.auc </td>
+   
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 1.225 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 402 </td>
+   <td style="text-align:right;"> 132.85 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="4"> dark </td>
+   <td style="text-align:right;"> BaP_uM </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="3"> 1 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 1.364 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 1.311 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> BaP_uM:LPR.dark.auc </td>
+   
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 1.196 </td>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:right;"> Residual </td>
+   <td style="text-align:right;"> 401 </td>
+   <td style="text-align:right;"> 132.43 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

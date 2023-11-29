@@ -1,0 +1,2 @@
+"bottle.id","date","casrn","chemical.id","chemical.name","MO24","DP24","SM24","MORT","CRAN","AXIS","EDEM","MUSC","LTRK","BRN_","SKIN","NC__","TCHR","any.effect","qc_pass","original.sample.size","sample.size.after.QC"
+"P215706",20220506,"50-32-8",1174,"Benzo[a]pyrene","2.33","0","0","3.26","1.92","1.44","1.44","0.48","1.44","0","0","0","0.48","5.12",TRUE,216,215

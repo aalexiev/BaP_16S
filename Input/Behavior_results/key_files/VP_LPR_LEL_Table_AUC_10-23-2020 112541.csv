@@ -1,0 +1,5 @@
+"Chemical.ID","Bottle.ID","Chemical.Name","conc","N","Dark","Light"
+"1174","P737470","Benzo[a]pyrene",1,129,"HYPO",NA
+"1174","P737470","Benzo[a]pyrene",5,132,NA,"HYPO"
+"1174","P737470","Benzo[a]pyrene",5,132,"HYPO",NA
+"1174","P737470","Benzo[a]pyrene",10,143,NA,NA

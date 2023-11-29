@@ -1,0 +1,5 @@
+"Chemical.ID","Bottle.ID","Chemical.Name","conc","Interval","N","AUC","RelativeRatio","P value","Activity"
+"1174","P737470","Benzo[a]pyrene",1,"Dark",129,-27.695,-0.159,"<0.001","HYPO"
+"1174","P737470","Benzo[a]pyrene",5,"Dark",132,-22.746,-0.1,"0","HYPO"
+"1174","P737470","Benzo[a]pyrene",5,"Light",132,-40.749,-0.245,"0","HYPO"
+"1174","P737470","Benzo[a]pyrene",10,"Dark",143,-21.406,0.075,"0",NA

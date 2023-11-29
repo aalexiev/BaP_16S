@@ -1,0 +1,2 @@
+"chemical.id","bottle.id","conc","chemical.name","count","org_ss","perc","interval","AUC","comment"
+"1174","P215706",0,"Benzo[a]pyrene",204,215,0.95,"Dark",126.108,"ctrl too active in the dark"

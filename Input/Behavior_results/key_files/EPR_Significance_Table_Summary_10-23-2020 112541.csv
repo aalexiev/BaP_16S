@@ -1,0 +1,3 @@
+"Chemical","Conc","Interval","p.value","Delta","Activity"
+"Benzo[a]pyrene",5,"Excitatory","<0.0001",1.1959930548329,"HYPER"
+"Benzo[a]pyrene",10,"Excitatory","6.717e-14",2.62668445699882,"HYPER"

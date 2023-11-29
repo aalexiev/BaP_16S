@@ -1,0 +1,5 @@
+"chemical.id","chemical.name","conc","count","org_ss","ss_more_70perc","Peak.no","Peak_dist","Peak.pval","PeakDiff","significance p<0.05","Peak_response_in_ctrl_QC"
+"1174","Benzo[a]pyrene",0,128,143,TRUE,"4",3.019,1,0,NA,NA
+"1174","Benzo[a]pyrene",1,129,144,TRUE,"4",2.823,0.018,-6.502,"YES",NA
+"1174","Benzo[a]pyrene",10,143,144,TRUE,"4",3.117,0.425,3.237,NA,NA
+"1174","Benzo[a]pyrene",5,132,142,TRUE,"4",2.958,0.653,-2.036,NA,NA

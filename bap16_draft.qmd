@@ -1,0 +1,1450 @@
+---
+title: "The microbiome influences the effects of a common environmental toxicant on the development of larval zebrafish behavior"
+format: docx
+editor: source
+execute: 
+  echo: false
+  cache: false
+  warning: false
+  output: asis
+---
+
+```{r setup}
+#| include: false
+#| cache: true
+
+source("Analysis/00_setup.R")
+theme_set(theme_cowplot())
+source(file.path(dirs$scripts, "my_cowplot_tweaks.R"))
+library(kableExtra)
+options(knitr.kable.NA = '')
+dirs$analysis <- "Analysis"
+dirs$fig.plots <- "Manuscript_figures"
+if (!dir.exists(dirs$fig.plots)) { dir.create(dirs$fig.plots) }
+img.dpi <- 300
+img.width <- 10
+img.height <- 10
+cap.width <-  110
+
+transparent <- rgb(0, 0, 0, 0)
+bap.colors <- brewer.pal(11, "RdYlGn")[c(11, 4, 3, 1)]
+bap.color.scale <- scale_color_manual(
+  name = "BaP (µM)", 
+  values = bap.colors,
+  na.value = transparent,
+  breaks = c(0, 1, 5, 10)
+)
+
+bap.fill.scale <- scale_fill_manual(name = "BaP (µM)", values = bap.colors)
+auc.colors <- colorRampPalette(brewer.pal(9, "YlGnBu")[-1])(104) %>% rev()
+sig.colors <- brewer.pal(9, "Blues")[c(8, 6)]
+plot.ext <- ".png"
+tbl.ext <- ".html"
+
+# source analysis files
+list.files(path = dirs$analysis, full.names = T) %>%
+  str_subset(pattern = "00", negate = T) %>% 
+  purrr::walk(source)
+
+# time points that bound LPR epochs
+epoch.dt <- data.table(
+  Epoch = c("E1", "E2", "E3"),
+  Start = c(61, 120, 180),
+  End = c(89, 149, 209)
+)
+
+autoNumCaptions::set.tracking.nums(type = "figure", set.to = 1) # "hand"-made figure outlining experimental design will be figure 1
+```
+
+## Methods
+
+### Experimental
+
+#### Effects of B*a*P and Broad Changes to the Microbiome on Behavior
+
+We gathered 864 zebrafish embryos from a single clutch. Two thirds of these embryos underwent germ-free derivation as detailed previously {cite}. In brief, the embryos are collected in EM with antibiotics. Then, they are washed briefly in a 0.1% PVP-I solution, rinsed multiple times with filter-sterilized EM, washed in a 0.003% bleach solution, and rinsed with filtered EM multiple times again. Each embryo was placed in a well of a 96-well plate containing 100 mL of embryo medium (EM). For the germ-free treatment, this EM was filter-sterilized. For the conventionalized (who underwent germ-free derivation) and the conventional treatments, this EM was not filter-sterilized. All plates were then sealed with a silicon seal that permits the passage of gasses, but not water or particulates. For two rows of each plate (24 wells per plate) we included in the EM a 0, 1, 5, or 10 µM concentration of benzo-\[*a*\]-pyrene (B*a*P). The plates were stored for the first 24 hrs in the dark at 28°C and after that on a 14/10 light-dark cycle also at 28°C. Embryonic behavioral development was assessed at 1 day post fertilization (dpf) using the embryonic photomotor response (EPR) assay, and larval behavioral development was assessed at 5 dpf using the larval photomotor response (LPR) assay {cite}. At both of these time points, embryos and larvae where visually inspected for deformities and mortality.
+
+#### Effects of B*a*P and the Conventional Zebrafish Microbiome on Behavior
+
+We gathered 576 zebrafish embryos from a single clutch and placed place each one in a well of a 96-well plate (the same treatment as the conventional embryos above). These embryos all underwent the same B*a*P exposure design and assessments as detailed above. At 9 dpf, all surviving larvae underwent intestinal dissection following all appropriate IACUC guidelines including anesthetization by immersion in an ice bath for 20 min prior to dissection. Dissected intestines were placed directly in DNA extraction tubes containing a DNA-stabilizing buffer from {kit} and flash frozen in liquid nitrogen in batches of 5-6 intestines at a time. Samples were stored at -80°C prior to DNA extraction.
+
+### DNA extraction and sequencing
+
+Extraction was conducted using the {kit} and sequencing libraries were prepared using EMP PCR protocol and primers {triplicate?} to amplify the V4 region of the 16S rRNA gene. {Other quality controls}. Libraries were submitted to the Center for Quantitative Life Sciences at Oregon State University for sequencing on the Illumina {location} MiSeq high-throughput sequencer.
+
+### Sequence QC and processing
+
+Raw reads were filtered for quality, merged, and assigned to amplicon sequence variants (ASVs) using the dada2 R package {cite} as implemented in our lab's pipeline {cite}. ASVs were assigned a taxonomy down to the genus level using dada2 and the Silva database {version and cite}. ASVs were aligned using the NAST algorithm as implemented in mothur {cite} along with guide sequences chosen from the Silva database to maximally represent 16S diversity. A phylogeny of the microbiome was inferred using FastTree2 {cite}, an approximately-maximum-likelihood method.
+
+### Diversity metrics
+
+All analyses were conducted at the ASV level unless otherwise noted. We estimated five alpha-diversity metrics for each larval zebrafish sample: richness (observed ASVs), Chao1 {cite}, Shannon {cite}, Simpson {cite}, and phylogenetic diversity (Faith's PD {cite}). We also estimated beta-diversity between each pair of larval zebrafish samples using six metrics. These included three phylogeny-agnostic metrics: Sørensen (abundance-unweighted) {cite}, Canberra (abundance-ranked) {cite}, Bray-Curtis (abundance-weighted) {cite}. And three phylogenetic metrics: unweighted UniFrac, half-weighted UniFrac, and weighted UniFrac {cite}.
+
+### Behavior data
+
+For EPR and LPR movement data, we calculated the areas under the curve (AUCs) from the movement data for each zebrafish sample. For the LPR results, there are four epochs of light and dark cycles. In analyzing this data the initial epoch, epoch 0 (E0) is typically disregarded as it is frequently quite noisy {cite}. We calculated AUCs on a per remaining epoch (E1-E3) per cycle (light vs dark) basis as well as summing across all epochs (i.e., a total AUC for the dark cycle and a total AUC for the light cycle). These total AUCs were utilized for the statistical analyses.
+
+### Statistical analyses
+
+For analysis of single response variables (e.g., AUC, alpha-diversity) we utilized linear mixed-effects models with plate ID as a random factor (behavior results in particular can be quite variable between plates {cite}). The only exception to this was for testing the effects of microbiome treatment (conventional vs. conventionalized vs. germ-free) on larval behavior as, due to methodological constraints, plate ID and microbiome treatment had to be conflated. For beta-diversity analyses (where a distance matrix is the response variable) we tested associations using PERMANOVA models conditioned on plate ID (i.e., the model accounts for the variance explained by plate ID first, and then tests the effects of other model predictors on the residuals). Linear models with multiple predictors were optimized by comparing increasingly complex models to a base model with one predictor using an ANOVA test. PERMANOVA models with multiple predictors were optimized using the function `ordistep` from the vegan package which adds and drops individual terms to minimize Aikake's Information Criterion (AIC). These optimized models were then use for testing the significance of associations between response variables and predictors with a significance threshold of 0.05. We implemented random forest models using the `ranger` package {cite} and chose hyper-parameters for the models using the `caret` package {cite}. We utilized the random forest models to determine how well taxon abundances could predict B*a*P exposure and LPR AUCs. For all models, we compared two data sets: ASV-only and aggregated (wherein we included ASV abundances as well as summed abundances for all taxonomic levels from genus to phylum). For predicting B*a*P exposure, we utilized both classification and regression random forest models; for predicting LPR AUCs, we only utilized regression models. In order to infer microbe-microbe interaction networks, we employed the `SpiecEasi` package, which is designed specifically for this task {cite}.
+
+## Results
+
+### B*a*P Affects Zebrafish Behavioral Outcomes
+
+In order to confirm that we properly administered B*a*P to the zebrafish embryos, we assessed whether both embryos and larvae had dose-dependent responses to our B*a*P treatments. Previous work has shown that B*a*P induces hyperactivity in both embryos and larvae. The zebrafish embryo behavior was assessed using the embryonic photomotor response (EPR) assay {cite}. Briefly, the embryos are kept in dark conditions (red light) for the first 24 hours. For the assay, they are subjected to a bright flash of light light, which induces them to move, and this movement is captured by video. A second flash of light causes them to stop moving, and the amount of movement that occurs between these two flashes is used to determine behavior. As shown in {fig_bapOnly_epr}, mean embryonic activity increases significantly with B*a*P exposure (this effect is only significant for 5 and 10 µM exposures relative to no exposure; *p* = 0.00266 & *p* << 0.001, respectively; {suppTable_bapOnly_epr}).
+
+```{r bapOnly-movement-EPR}
+# See Analysis/01_bapOnly_predict_behavior_alpha_beta.R for relevant analyses
+
+# saving figure stuff
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", autoNumCaptions::get.tracking.num("figure") + 1,"_bapOnly_epr", plot.ext
+  )
+)
+
+fig.caption <- "EPR movement data. (A) Colored lines indicate the mean movement (mm) for zebrafish embryos for each B*a*P exposure level (in µM). The shaded ribbons indicate 95% C.I.s for the movement means. The black dotted lines indicate the window of time on which later statistical analysis are based. (B) Areas under the curve (AUCs) for the movement curves from panel A, measured only in the window between the dotted lines. Black error bars indicate the 95% C.I.s for the mean AUC per B*a*P exposure level. The black dotted line indicates the estimated association from linear regression."
+
+# read in data
+epr.move.dt <- readRDS(file.path(dirs$save, "EPR_base_dt.rds"))
+
+# generate plots
+list(
+  { # epr movement by time
+    ggplot(epr.move.dt[Timepoint > 19], aes(x = Timepoint, y = Movement)) + 
+      stat_summary(
+        fun.data = "mean_cl_boot",
+        geom = "ribbon", 
+        aes(fill = as.factor(BaP.uM)), 
+        alpha = 0.3
+      ) +
+      stat_summary(
+        fun = mean, 
+        geom = "line", 
+        aes(color = as.factor(BaP.uM))
+      ) +
+      bap.fill.scale +
+      bap.color.scale +
+      geom_vline(xintercept = c(30, 40), linetype = 2, color = "gray10") +
+      scale_x_continuous(expand = c(0, 0), n.breaks = 6) +
+      labs(y = "Movement (mm)", x = "Timepoint (s)")  + 
+      background_grid(major = "y", minor = "y")
+  },
+  { # epr movement auc by bap
+    ggplot(sample.dt, aes(x = BaP_uM, y = EPR.auc)) + 
+      geom_quasirandom(aes(color = as.factor(BaP_uM))) + 
+      stat_summary(
+        fun.data = "mean_cl_boot", 
+        geom = "errorbar"
+      ) + 
+      stat_smooth(
+        method = "lm", 
+        formula = y ~ x, 
+        color = "black", 
+        linetype = 2,
+        size = 0.5,
+        se = FALSE
+      ) +
+      bap.color.scale + 
+      scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+      labs(y = "AUC (mm × time)", x = "BaP (µM)") + 
+      theme(legend.position = "none") + 
+      background_grid(major = "y", minor = "y")
+  }
+) %>%
+  plot_grid(
+    plotlist = ., 
+    nrow = 1, 
+    align = "h", 
+    axis = "tb", 
+    rel_widths = c(1.5, 1),
+    labels = "AUTO"
+  ) %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width,
+    height = img.height * 0.6,
+    dpi = img.dpi
+  )
+autoNumCaptions::make.inline.fig(filename = fig.file, caption = fig.caption)
+
+# stats table
+tbl.caption <- autoNumCaptions::supp.tbl.caption(
+  "Linear regression model testing the association between BaP exposure and EPR AUC values (embryonic activity)."
+)
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapOnly_epr", tbl.ext)
+)
+kable(
+  epr.bap.stat.tbl, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(0, 2, 2, 2, 3, 0), 
+  align = c(rep("r", 5), "l")
+) %>% 
+  kableExtra::save_kable(file = tbl.file, self_contained = F)
+```
+
+We also assessed the effect of embryonic B*a*P exposure in five-day-old larval zebrafish. Larval behavior was assessed using the larval photomotor response (LPR) assay {cite}. Briefly, the larvae are subjected to for epochs of light and dark cycles. Typically, the larvae move much more during the dark cycles. The first epoch is typically discarded as it can be quite noisy {cite}, and we did the same here. For all our analyses, we summed AUCs for the remaining three epochs by cycle (light or dark). We again found a significant effect of B*a*P exposure on LPR AUC values {suppTbl_bapOnly_lpr}, but this relationship was not linear {fig_bapOnly_lpr}. Previously work assessed the effects of B*a*P exposure on larval behavior on a per-plate-per-exposure-level basis using a metric called Differential Entropy {cite}. However, this method would only give us 6 behavioral data points per B*a*P exposure level, which would be incredibly difficult to link to the individual microbiome samples we have for each larva. {suppFig_bapOnly_LPR_SARL} shows what the results of such an analyses for these data, and, at least for the dark cycle, we do not see a reduction in activity between 5 µM and 10 µM B*a*P exposure, which is consistent with the previous literature, and gave us confidence that our results were not particularly aberrant. 
+
+```{r bapOnly-movement-LPR}
+# saving figure stuff
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", get.tracking.num("figure") + 1,"_bapOnly_lpr", plot.ext
+  )
+)
+
+fig.caption <- "LPR movement data. (A) Colored lines indicate the mean movement (mm) for zebrafish embryos for each B*a*P exposure level (in µM). The shaded ribbons indicate 95% C.I.s for the movement means. The yellow segments near the x-axis indicate which time points fall within light cycles (the rest of the time points are in dark cycles). (B) Areas under the curve (AUCs) for the movement curves from panel A, split by cycle. Black error bars indicate the 95% C.I.s for the mean AUC per B*a*P exposure level. The black dotted line indicates the estimated association from polynomial linear regression."
+
+# read in data
+lpr.move.dt <- readRDS(file.path(dirs$save, "LPR_base_dt.rds"))
+
+# easier plotting of lpr aucs by cycle
+lpr.auc.plot.dt <- melt(
+  sample.dt, 
+  id.vars = c("Sample", "BaP_uM"), 
+  measure.vars = str_subset(names(sample.dt), "LPR.(dark|light).auc"),
+  variable.name = "Cycle",
+  value.name = "AUC"
+)
+lpr.auc.plot.dt[
+  , Cycle := str_remove_all(Cycle, "LPR.|.auc") %>%
+    factor(levels = c("light", "dark"))
+]
+
+# generate plots
+list(
+  { # lpr movement by time
+    ggplot(
+      lpr.move.dt[Timepoint >= epoch.dt$Start[1]], 
+      aes(x = Timepoint, y = Movement)
+    ) + 
+      geom_segment(
+        data = epoch.dt,
+        y = -0.1, yend = -0.1,
+        aes(x = Start, xend = End),
+        color = "yellow",
+        size = 3
+      ) +
+      stat_summary(
+        fun.data = "mean_cl_boot", 
+        geom = "ribbon",
+        aes(fill = as.factor(BaP.uM)),
+        alpha = 0.3
+      ) +
+      bap.fill.scale +
+      stat_summary(
+        fun = mean, 
+        geom = "line", 
+        aes(color = as.factor(BaP.uM))
+      ) + 
+      bap.color.scale + 
+      scale_x_continuous(expand = c(0, 0)) + 
+      labs(y = "Movement (mm)") + 
+      background_grid(major = "y", minor = "y")
+  },
+  { # lpr movement auc by bap
+    ggplot(lpr.auc.plot.dt, aes(x = BaP_uM, y = AUC)) + 
+      geom_quasirandom(aes(color = as.factor(BaP_uM)), show.legend = F) + 
+      stat_summary(
+        fun.data = "mean_cl_boot", 
+        geom = "errorbar"
+      ) + 
+      stat_smooth(
+        method = "lm", 
+        formula = y ~ x + I(x^2), 
+        color = "black", 
+        linetype = 2,
+        size = 0.5,
+        se = FALSE
+      ) +
+      bap.color.scale + 
+      scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+      facet_wrap(~ Cycle, nrow = 1) + 
+      labs(y = "AUC (mm × time)", x = "BaP (µM)") + 
+      background_grid(major = "y", minor = "y")
+  }
+) %>%
+  plot_grid(
+    plotlist = ., 
+    nrow = 1, 
+    align = "h", 
+    axis = "tb", 
+    rel_widths = c(1.5, 1),
+    labels = "AUTO"
+  ) %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width * 1.2,
+    height = img.height * 0.6,
+    dpi = img.dpi
+  )
+make.inline.fig(filename = fig.file, caption = fig.caption)
+
+# stats table
+tbl.caption <- supp.tbl.caption(
+  "Linear regression models testing the association between BaP exposure and LPR AUC values (larval activity) by light and dark cycles."
+)
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapOnly_lpr", tbl.ext)
+)
+kable(
+  lpr.bap.lm.tbl, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(rep(0, 5), 2, 2, 0, 2, 3, 0), 
+  align = c(rep("c", 4), rep("r", 6), "l")
+) %>% 
+  collapse_rows(columns = 1:4) %>% 
+  save_kable(file = tbl.file, self_contained = F)
+```
+
+### Broad-scale changes to the microbiome affect the B*a*P-behavior relationship
+
+To determine what role, if any, the microbiome play in the relationship between larval behavior and B*a*P, we first tested whether broad-scale changes to the microbiome had any significant results. We compared the behavioral response to embryonic B*a*P exposure for conventionally raised (CV), conventionalized (CVZ), and germ-free (GF) zebrafish. We found a significant effect of microbiome treatment on how the B*a*P affected larval behavior. In particular, GF zebrafish exhibit higher activity relative to CV larvae, even in the unexposed group, during the light cycles; while CVZ larvae exhibit decreased activity in relative to CV larvae during the dark cycles. Both GF and CVZ larvae underwent the germ-free derivation process (the CVZ embryos were then place in non-sterilized EM, while the GF were placed in filter sterilized EM), indicating that differences in activity for these group relative to CV larvae is not simply due to the effects of the germ-free derivation process. (If it were we would expect their differences from CV larvae to be in the same direction).
+
+```{r bapOnly-CvCvzGf}
+# saving figure stuff
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", 
+    get.tracking.num("figure") + 1,"_bapOnly_cvcvzgf_lpr", 
+    plot.ext
+  )
+)
+
+fig.caption <- "LPR movement data. (A) Colored lines indicate the mean movement (mm) for zebrafish embryos for each B*a*P exposure level (in µM). Line type (solid, dashed, dotted) indicates microbiome treatment: conventional (CV), conventionalized (CVZ), or germ free (GF), respectively. The yellow segments near the x-axis indicate which time points fall within light cycles (the rest of the time points are in dark cycles). (B) Areas under the curve (AUCs) for the movement curves from panel A, split by cycle. Black error bars indicate the 95% C.I.s for the mean AUC per B*a*P exposure level and microbiome treatment. The black lines indicate the estimated association from polynomial linear regression. For the light cycle, GF sample AUCs are significantly higher than CV AUCs, and there is no significant difference between CVZ AUCs and CV AUCs. There is no significant interaction between Microbiome and B*a*P. For the dark cycle, CVZ sample AUCs are significantly lower than CV AUCs, and there is no significant difference between GF AUCs and CV AUCs. There is also no sigificant interaction between Microbiome and B*a*P"
+
+# read in data
+lpr.move.dt <- readRDS(file.path(dirs$input, "cv_cvz_gf_LPR_base_dt.rds")) %>%
+  merge(. , microbiome.plate.treat, by = "Plate.ID")
+
+# easier plotting of lpr aucs by cycle
+lpr.auc.plot.dt <- melt(
+  cvcvzgf.dt, 
+  id.vars = c("Sample", "BaP_uM", "Microbiome"), 
+  measure.vars = str_subset(names(cvcvzgf.dt), "LPR.(dark|light).auc"),
+  variable.name = "Cycle",
+  value.name = "AUC"
+)
+lpr.auc.plot.dt[
+  , Cycle := str_remove_all(Cycle, "LPR.|.auc") %>%
+    factor(levels = c("light", "dark"))
+]
+pred.dt <- lpr.ccg.bap.lm.pred[Model == "2nd order"]
+pred.dt[, Cycle := factor(Cycle, levels = c("light", "dark"))]
+# generate plots
+list(
+  { # lpr movement by time
+    ggplot(
+      lpr.move.dt[Timepoint >= epoch.dt$Start[1]], 
+      aes(x = Timepoint, y = Movement)
+    ) + 
+      geom_segment(
+        data = epoch.dt,
+        y = -0.1, yend = -0.1,
+        aes(x = Start, xend = End),
+        color = "yellow",
+        size = 3
+      ) +
+      stat_summary(
+        fun = mean, 
+        geom = "line", 
+        aes(color = as.factor(BaP.uM), linetype = Microbiome)
+      ) + 
+      bap.color.scale + 
+      scale_linetype_manual(values = c("solid", "longdash", "dotted")) +
+      scale_x_continuous(expand = c(0, 0)) + 
+      labs(y = "Movement (mm)") + 
+      background_grid(major = "y", minor = "y")
+  },
+  { # lpr movement auc by bap
+    ggplot(lpr.auc.plot.dt, aes(x = BaP_uM, y = AUC)) + 
+      geom_quasirandom(
+        aes(color = as.factor(BaP_uM), shape = Microbiome), 
+        show.legend = F,
+        dodge = 1
+      ) + 
+      stat_summary(
+        fun.data = "mean_cl_boot", 
+        geom = "errorbar",
+        aes(group = Microbiome),
+        position = position_dodge(width = 1)
+      ) + 
+      geom_path(
+        data = pred.dt,
+        aes(linetype = Microbiome, group = Microbiome),
+        color = "black",
+        size = 0.5,
+        se = FALSE
+      ) +
+      bap.color.scale + 
+      scale_linetype_manual(values = c("solid", "longdash", "dotted")) +
+      scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+      facet_wrap(~ Cycle, nrow = 1) +
+      labs(y = "AUC (mm × time)", x = "BaP (µM)") + 
+      background_grid(major = "y", minor = "y")
+  }
+) %>%
+  plot_grid(
+    plotlist = ., 
+    nrow = 1, 
+    align = "h", 
+    axis = "tb", 
+    rel_widths = c(1.5, 1),
+    labels = "AUTO"
+  ) %>%
+ggsave(
+  filename = fig.file,
+  width = img.width * 1.2,
+  height = img.height * 0.6,
+  dpi = img.dpi
+)
+make.inline.fig(filename = fig.file, caption = fig.caption)
+
+# stats table
+tbl.caption <- supp.tbl.caption(
+  "Linear regression models testing the association between BaP exposure, microbiome treatment and LPR AUC values (larval activity) by light and dark cycles."
+)
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapOnly_cvcvzgf_lpr", tbl.ext)
+)
+kable(
+  lpr.ccg.bap.lm.tbl, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(rep(0, 3), 2, 2, 2, 3, 0), 
+  align = c(rep("c", 2), rep("r", 5), "l")
+) %>% 
+  collapse_rows(columns = 1:3) %>% 
+  save_kable(file = tbl.file, self_contained = F)
+
+
+### Fig for Tom
+tom.plot <- copy(lpr.auc.plot.dt)
+tom.plot[, BaP_uM := factor(paste(BaP_uM, "µM"), levels = paste(bap.concs, "µM"))]
+{ # lpr movement auc by bap
+  ggplot(tom.plot, aes(x = Microbiome, y = AUC)) + 
+    geom_quasirandom(
+      # aes(color = as.factor(BaP_uM), shape = Microbiome), 
+      # show.legend = F,
+      dodge = 1
+    ) + 
+    stat_summary(
+      fun.data = "mean_cl_boot", 
+      geom = "errorbar",
+      # aes(group = Microbiome),
+      position = position_dodge(width = 1),
+      color = "red"
+    ) + 
+    # geom_path(
+    #   data = pred.dt,
+    #   aes(group = Microbiome),
+    #   color = "black",
+    #   size = 0.5
+    # ) +
+    # bap.color.scale + 
+    scale_linetype_manual(values = c("solid", "longdash", "dotted")) +
+    # scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+    facet_grid(Cycle ~ BaP_uM, scales = "free_y") +
+    labs(y = "AUC (mm × time)", x = "BaP (µM)") + 
+    background_grid(major = "y", minor = "y")
+  } %>% 
+  ggsave(
+    filename = str_replace(fig.file, "4", "4B_gridded"),
+    width = img.width,
+    height = img.height,
+    dpi = img.dpi
+  )
+```
+
+### B*a*P Affects Zebrafish Microbiome Diversity and Composition
+
+We next tested whether B*a*P exposure has an effect on the diversity and composition of the larval zebrafish microbiome. We found significant associations between B*a*P exposure and three of the five alpha-diversity metrics we assessed: Chao1 {cite}, phylogenetic diversity {cite}, and ASV richness {suppTbl_bapOnly_alpha}. The other two, non-significant, alpha-diversity metrics were Shannon {cite}, and Simpson {cite}. These results, together suggest that B*a*P exposure seems to increase the number of taxa present in the larval zebrafish intestine, but doesn't greatly alter the relative abundances of the majority of the microbiome constituents. These additional taxa present in the microbiomes of zebrafish exposed to the higher concentrations (5 and 10 µM) of B*a*P also seem to not be closely related to other taxa present in the unexposed microbiomes, suggesting, perhaps, that these additional taxa are present because they might be capable of utilizing B*a*P (or its derivatives) metabolically. We utilized six beta-diversity metrics to assess whether B*a*P affects differences in microbiome composition between larvae: Bray-Curtis {cite}, Canberra {cite}, Sørensen {cite}, weighted UniFrac {cite}, half-weighted UniFrac {cite}, and unweighted UniFrac {cite}. Of these, B*a*P exposure only had a significant association with unweighted UniFrac. Because this distance is unweighted (presence/absence only), it is particularly sensitive to the addition or loss of rare taxa, and because it takes into account the inferred microbiome phylogeny, it is sensitive to changes in taxa that are more distantly related. These beta-diversity results, then, are concordant with the alpha-diversity results and together they suggest that B*a*P exposure primarily affects the increase in low-abundance, distantly-related taxa in the larval zebrafish intestinal microbiome. 
+
+```{r bapOnly-alpha-beta}
+# saving figure stuff
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", 
+    get.tracking.num("figure") + 1,"_bapOnly_alpha_beta", 
+    plot.ext
+  )
+)
+
+fig.caption <- "Differences in larval microbiome diversity and composition by B*a*P exposure. (A) Phylogenetic diversity of larval microbiomes. Black error bars represent bootstrapped 95% C.I.s around the means; the dotted black line represents the estimated trend line from regression. (B) Unweighted UniFrac beta-diversity dbRDA ordination of larval microbiomes. Points are colored by B*a*P exposure. The black arrow indicates the direction of the trend in B*a*P exposure in ordination space. Percentages in the axis labels indicate the percent variance in microbiome composition explained by each axis."
+
+# read in data
+alpha.plot.dt <- melt(
+  copy(sample.dt),
+  measure.vars = c("Phylogenetic"),
+  id.vars = c("Sample", "BaP_uM"),
+  variable.name = "Alpha.metric",
+  value.name = "Score"
+)
+sig.beta <- "Unweighted UniFrac"
+beta.coord.dt <- beta.bap.ord.dts$sample.coords[Beta.method == sig.beta]
+beta.vector.dt <- beta.bap.ord.dts$vector.coords[Beta.method == sig.beta]
+beta.axes.labs <- beta.bap.ord.dts$axes.labs[Beta.method == sig.beta]
+
+#generate plots
+list(
+  { # sig alphas
+    ggplot(alpha.plot.dt, aes(x = BaP_uM, y = Score)) + 
+      geom_quasirandom(aes(color = as.factor(BaP_uM))) + 
+      stat_summary(
+        fun.data = "mean_cl_boot", 
+        geom = "errorbar"
+      ) + 
+      stat_smooth(
+        method = "lm", 
+        formula = y ~ x, 
+        color = "black", 
+        linetype = 2,
+        size = 0.5,
+        se = FALSE
+      ) +
+      bap.color.scale + 
+      scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+      labs(
+        y = "Score", 
+        x = "BaP (µM)", 
+        subtitle = "Phylogenetic Diversity"
+      ) + 
+      background_grid(major = "y", minor = "y")
+  },
+  { # sig betas
+    ggplot(beta.coord.dt, aes(x = Axis1, y = Axis2)) + 
+      geom_point(aes(color = as.factor(BaP_uM)), show.legend = F) + 
+      geom_segment(
+        data = beta.vector.dt, 
+        aes(x = 0, y = 0, xend = Axis1, yend = Axis2),
+        color = "black",
+        arrow = arrow(length = unit(0.03, "npc"))
+      ) +
+      bap.color.scale + 
+      labs(
+        x = beta.axes.labs$X.lab, 
+        y = beta.axes.labs$Y.lab,
+        subtitle = sig.beta
+      ) 
+  }
+) %>%
+  plot_grid(
+    plotlist = .,
+    nrow = 1,
+    rel_widths = c(1, 1.5),
+    align = "h",
+    axis = "tb",
+    labels = "AUTO"
+  ) %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width,
+    height = img.height * 0.6,
+    dpi = img.dpi
+  )
+make.inline.fig(filename = fig.file, caption = fig.caption)
+
+# stats tables
+alpha.caption <- supp.tbl.caption(
+  "Linear regression models testing the association between BaP exposure and larval microbiome alpha-diversity metrics."
+)
+alpha.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapOnly_alpha", tbl.ext)
+)
+kable(
+  alpha.bap.res, 
+  row.names = F, 
+  caption = alpha.caption, 
+  digits = c(rep(0, 4), 2, 2, 0, 2, 3, 0), 
+  align = c(rep("c", 3), rep("r", 6), "l")
+) %>% 
+  collapse_rows(columns = 1:4) %>% 
+  save_kable(file = alpha.file, self_contained = F)
+
+beta.caption <- supp.tbl.caption(
+  "PERMANOVA models testing the association between BaP exposure and larval microbiome beta-diversity metrics."
+)
+beta.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapOnly_beta", tbl.ext)
+)
+kable(
+  beta.bap.aov.dt, 
+  row.names = F, 
+  caption = beta.caption, 
+  digits = c(rep(0, 3), 2, 2, 3, 0), 
+  align = c("c", rep("r", 5), "l")
+) %>% 
+  collapse_rows(columns = 1:4) %>% 
+  save_kable(file = beta.file, self_contained = F)
+```
+
+Use random forest models to determine how well we could predict B*a*P exposure from taxon abundances. We assessed how well two different taxa sets could predict exposures: an ASV-only set and an aggregated set in which we not only included abundances of individual ASVs, but all aggregated them into their higher-level taxonomic assignments (e.g., genus, family, class, etc) and included those aggregated counts as well. We split the data 70/30 into training and testing sets to determine the predictive power of the models. We also used both classification and regression models. The results of the models were modest, but better than chance. The ROC AUC for the classification model was 0.54, meaning it correctly classified samples ~ 54% of the time (regardless of the taxa set), which is better than the 25% expected by random chance for four possible classes. The RMSE for the regression models was 3.88 and 3.92 for the ASV-only and aggregated sets, respectively, meaning that these models could predict a sample's exposure within just under 4 µM {suppTbl_bapOnly_rf_performance}
+
+```{r bapOnly-randForest}
+tbl.caption <- supp.tbl.caption(
+  "Accuracy metrics (root mean squared error [RMSE] and area under the receiver operating characteristic curve [ROC AUC]) for random forest models predicting BaP exposure level from taxon abundances. RMSE is for regression models, ROC AUC is for classification models. Two different taxa sets were assess: ASV-only, i.e., just ASV abundances; and aggregated, i.e., ASVs plus then grouping ASVs into higher taxonomic level groups (genera, families, classes, etc) and inlcuding all those counts together."
+)
+
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppTbl", get.tracking.num("supplemental table"), "_bapOnly_rf_performance", tbl.ext
+  )
+)
+
+rf.perform <- bap.rmses.dt[bap.rocAUCs.dt, on = "Taxa.set"]
+rf.perform[, Taxa.set := str_replace(Taxa.set, "_", "-")]
+names(rf.perform) <- str_replace_all(names(rf.perform), "\\.", " ")
+kable(
+  rf.perform, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(0, 2, 3), 
+  align = "r"
+) %>% 
+  save_kable(file = tbl.file, self_contained = F)
+```
+
+<!-- Include some marker analysis here -->
+
+### Microbiome Diversity and B*a*P exposure Predict Larval Behavior
+
+We next wanted to know that if we could utilized both microbiome and B*a*P exposure data in conjunction to predict zebrafish behavior. We tested whether there were any interactions between B*a*P and microbiome diversity in predicting LPR AUCs. Only one metric, the Shannon index, had a significant interaction with B*a*P exposure in predicting LPR AUCs. As {fig_bapXalpha_behav} shows, the relationship between microbiome diversity and larval activity is negative for most B*a*P exposure levels. However, at 10 µM, this relationship flips and becomes position. That is, microbiome diversity changes from becoming protective against hyperactivity to exacerbating it.
+
+```{r bapXalphaXbehav-and-bapXbehavXbeta}
+# saving figure stuff
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", 
+    get.tracking.num("figure") + 1,"_bapXalphaXbehav_and_bapXbehavXbeta", 
+    plot.ext
+  )
+)
+
+fig.caption <- "(A) Scatter plot of alpha-diversity scores (Shannon index) on the x-axis and LPR dark cycle AUCs (larval activity) on the y-axis. Lines indicate relationship estimated from mixed-effects linear regression models, the interaction between Shannon scores and B*a*P exposure is significant (*p* = 0.038). Points and lines are colored by B*a*P exposure. (B) Distance-based Redundancy Analysis (dbRDA) ordination of unweighted UniFrac scores comparing microbiome composition between samples. Each point represents a sample, the closer the samples, the more alike their microbiome composition is according to the distance metric. Black arrows indicate the direction of greatest change in the indicated covariated. Only statistically significant relationships are show. In the left panel, 'Light Cycles', points are colored by B*a*P exposure. In the right panel, 'Dark Cycles', the outer edge of the points are colored by B*a*P exposure while the center of the points are colored by the square-root (for visualization purposes) of the LPR AUC for each sample."
+
+alpha.plot.dt <- copy(sample.dt) %>% 
+  .[
+    , BaP_factor := factor(
+      paste(BaP_factor, "µM BaP"), 
+      levels = paste(bap.concs, "µM BaP")
+    )
+  ]
+predictions.dt <- readRDS(
+  file.path(dirs$save, "bapXbehav_alpha_lpr_lmes_Shannon_preds_dt.rds")
+) %>% 
+  .[
+    , BaP_factor := factor(
+      paste(BaP_uM, "µM BaP"), 
+      levels = paste(bap.concs, "µM BaP")
+    )
+  ]
+
+sig.res <- beta.lpr.step.aov.dt[P.value <= 0.05]
+sections <- names(beta.lpr.step.ord.dts) %>% set_names()
+focal.beta <- "Unweighted UniFrac"
+beta.plot.dts <- lapply(sections, function(section) {
+  sec.data <- copy(beta.lpr.step.ord.dts[[section]])
+  if (section == "sample.coords") {
+    sec.dt <- lapply(unique(sig.res$Beta.metric), function(beta) {
+      lapply(lpr.cycles, function(cycle) { 
+        return.cols <- c(
+          "Sample", 
+          "Beta.method", 
+          "Cycle", 
+          "AUC", 
+          "BaP_uM", 
+          paste0("Axis", 1:2)
+        )
+        sig.vars <- sig.res[Beta.metric == beta & Cycle == cycle]$Term
+        if (length(sig.vars) == 0) {
+          return(NULL)
+        } else if (length(sig.vars) < 2) {
+          if (sig.vars == "AUC") {
+            return.dt <- copy(sec.data[Beta.method == beta & Cycle == cycle])
+            return.dt[, BaP_uM := NA]
+          } else {
+            return.dt <- copy(sec.data[Beta.method == beta & Cycle == cycle])
+            return.dt[, AUC := NA]
+          }
+          return(return.dt[, ..return.cols])
+        } else {
+          return(sec.data[Beta.method == beta & Cycle == cycle, ..return.cols])
+        }
+      }) %>% rbindlist()
+    }) %>% rbindlist()
+  } else if (section == "vector.coords") {
+    sec.data[
+      , Variable := str_remove_all(Variable, "LPR|light|dark|_uM|\\.") %>%
+        str_replace("auc", "AUC")
+    ]
+    sec.dt <- lapply(unique(sig.res$Beta.metric), function(beta) {
+      lapply(lpr.cycles, function(cycle) {
+        sig.vars <- sig.res[Beta.metric == beta & Cycle == cycle]$Term %>%
+          str_remove_all("_uM|LPR|dark|light|\\.") %>%
+          str_replace("auc", "AUC")
+        return(
+          sec.data[
+            Beta.method == beta & Cycle == cycle & Variable %in% sig.vars
+          ]
+        )
+      }) %>% rbindlist()
+    }) %>% rbindlist()
+  } else {
+    sec.dt <- sec.data[Beta.method %in% unique(sig.res$Beta.metric)]
+  }
+  return(sec.dt)
+})
+coords.dt <- beta.plot.dts$sample.coords[Beta.method == focal.beta]
+vctr.dt <- beta.plot.dts$vector.coords[Beta.method == focal.beta]
+axes.dt0 <- melt(
+  beta.plot.dts$axes.labs,
+  measure.vars = c("X.lab", "Y.lab"),
+  variable.name = "Axis.lab",
+  value = "Label"
+)
+axis.scalar <- 1.2
+axes.dt0[, Axis.lab := str_remove(Axis.lab, "\\.lab")]
+axes.dt1 <- lapply(lpr.cycles, function(cycle) {
+  cycle.dt <- axes.dt0[Cycle == cycle]
+  mm.a1 <- c(
+    coords.dt[Cycle == cycle]$Axis1, 
+    vctr.dt[Cycle == cycle]$Axis1
+  ) %>% Rfast::min_max()
+  cycle.dt[
+    , Axis1 := ifelse(
+      Axis.lab == "X", 
+      mm.a1[2] * axis.scalar, 
+      mm.a1[1] * axis.scalar
+    )
+  ] %>%
+    return()
+}) %>% rbindlist()
+
+axes.dt <- lapply(focal.beta, function(beta) {
+  beta.dt <- axes.dt1[Beta.method == beta]
+  mm.a2 <- c(
+    coords.dt[Beta.method == beta]$Axis2, 
+    vctr.dt[Beta.method == beta]$Axis2
+  ) %>% Rfast::min_max()
+  beta.dt[
+    , Axis2 := ifelse(
+      Axis.lab == "Y",
+      mm.a2[2] * axis.scalar,
+      mm.a2[1] * axis.scalar)
+  ] %>%
+    return()
+}) %>% rbindlist()
+axes.dt[
+  , `:=`(
+    # Hjust = ifelse(Axis.lab == "X", 1, 0), 
+    Vjust = ifelse(Axis.lab == "X", 0, 1),
+    Angle = ifelse(Axis.lab == "X", 0, 90)
+  )
+]
+coords.dt[
+  , Cycle := factor(
+    toTitleCase(paste(Cycle, "Cycles")), 
+    levels = c("Light Cycles", "Dark Cycles")
+  )
+]
+vctr.dt[
+  , Cycle := factor(
+    toTitleCase(paste(Cycle, "Cycles")), 
+    levels = c("Light Cycles", "Dark Cycles")
+  )
+]
+axes.dt[
+  , Cycle := factor(
+    toTitleCase(paste(Cycle, "Cycles")), 
+    levels = c("Light Cycles", "Dark Cycles")
+  )
+]
+list(
+  { #alpha
+    ggplot(alpha.plot.dt, aes(x = Shannon, y = LPR.dark.auc, color = as.factor(BaP_uM))) + 
+      geom_point() + 
+      geom_line(data = predictions.dt) + 
+      bap.color.scale + 
+      labs(x = "Shannon Index", y = "LPR dark cycle AUC")
+  },
+  { #beta
+    ggplot(coords.dt, aes(x = Axis1, y = Axis2)) +
+      geom_point(aes(color = as.factor(BaP_uM)), size = 3) +
+      bap.color.scale + 
+      geom_point(
+        aes(fill = sqrt(AUC)), 
+        color = transparent, 
+        shape = 21, 
+        size = 1.5
+      ) + 
+      scale_fill_gradient(
+        low = "grey90", 
+        high = "black", 
+        na.value = transparent
+      ) +
+      geom_segment(
+        data = vctr.dt,
+        aes(x = 0, y = 0, xend = Axis1, yend = Axis2),
+        arrow = arrow(length = unit(0.02, "npc"))
+      ) + 
+      geom_text_repel(
+        data = vctr.dt, 
+        aes(label = Variable)
+      ) +
+      geom_text(
+        data = axes.dt,
+        aes(label = Label, vjust = Vjust, angle = Angle),
+        hjust = 1,
+        color = "grey30"
+      ) +
+      facet_wrap( ~ Cycle, scales = "free") + 
+      theme(legend.box = "horizontal", axis.title = element_blank()) + 
+      panel_border()
+  }
+) %>%
+  plot_grid(
+    plotlist = ., 
+    align = "h",
+    axis = "tb",
+    nrow = 1, 
+    labels = "AUTO",
+    rel_widths = c(1, 2)
+  ) %>% 
+  ggsave(
+    filename = fig.file,
+    width = img.width * 2,
+    height = img.height * 0.6,
+    dpi = img.dpi
+  )
+
+make.inline.fig(filename = fig.file, caption = fig.caption)
+```
+
+### B*a*P exposure and Larval Behavior Predict Differences in Microbiome Composition
+
+Because of the nature of beta-diversity, i.e., that is represented as a matrix of distances between samples, we could not predict LPR AUCs from beta-diversity metrics using standard regression models. Therefore, we predicted beta-diversity from LPR AUC values and B*a*P exposure using PERMANOVA models. We built full models, which included an interaction term between the predictors and optimized the models using the function `vegan::ordistep` which chooses the "best" model based on AIC. For 5 of the six beta-diversity metrics we assessed, only LPR AUC was retained as a predictor in the optimal model. An interaction term was retained in the optimal model for unweighted UniFrac, though it was not statistically significant, while both main effects were {fig_bapXbehav_beta; suppTbl_bapXbehave_beta}
+
+```{r bapXalphaXbehav-and-bapXbehavXbeta-stats}
+alpha.caption <- supp.tbl.caption(
+  "Linear regression models testing the associations between LPR AUCs (larval activity) and BaP exposure, microbiome diversity."
+)
+alpha.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapXbehav_alpha", tbl.ext)
+)
+alpha.lpr.lmes.dt[
+  !str_detect(Term, "Intercept"), 
+  Term := str_remove_all(str_replace_all(Term, "BaP_uM", "BaP"), "I\\(|\\)")
+]
+kable(
+  alpha.lpr.lmes.dt, 
+  row.names = F, 
+  caption = alpha.caption, 
+  digits = c(rep(0, 5), 2, 2, 0, 2, 3, 0), 
+  align = c(rep("c", 4), rep("r", 6), "l")
+) %>% 
+  collapse_rows(columns = 1:5) %>% 
+  save_kable(file = alpha.file, self_contained = F)
+
+beta.caption <- supp.tbl.caption(
+  "PERMANOVA models testing the association between beta-diversity scores and BaP exposure, LPR AUC scores."
+)
+beta.file <- file.path(
+  dirs$fig.plots, 
+  paste0("suppTbl", get.tracking.num("supplemental table"), "_bapXbehav_beta", tbl.ext)
+)
+kable(
+  beta.lpr.step.aov.dt, 
+  row.names = F, 
+  caption = beta.caption, 
+  digits = c(rep(0, 3), 2, 2, 3, 0), 
+  align = c("c", rep("r", 5), "l")
+) %>% 
+  collapse_rows(columns = 1:4) %>% 
+  save_kable(file = beta.file, self_contained = F)
+```
+
+### Taxon abundances predict LPR AUC values
+
+Though we could not directly predict zebrafish activity from beta-diversity metrics, we could use taxon abundances to do so, utilizing a similar random forest model framework as we did above. In this case, we used random forest regression models to predict LPR AUC values from taxon abundances. We created different models for light vs dark cycles and we again utilized both ASV-only and aggregate abundance data sets as predictors. Both taxa sets performed similarly, the light cycle random forest models has RMSEs between 86 and 87 mm × time point and the dark cycle models RMSEs were just under 287 mm × time point. Relative to the max AUC for each cycle, this represents roughly a 16% and 20% error rate, respectivey, for the random forest models.
+
+<!-- Check AUC units -->
+
+```{r lprAUCs-randForest}
+tbl.caption <- supp.tbl.caption(
+  "Accuracy metrics (root mean squared error [RMSE]) for random forest models predicting light and dark cycle LPR AUCs values from taxon abundances. Two different taxa sets were assess: ASV-only, i.e., just ASV abundances; and aggregated, i.e., ASVs plus then grouping ASVs into higher taxonomic level groups (genera, families, classes, etc) and inlcuding all those counts together."
+)
+
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppTbl", get.tracking.num("supplemental table"), "_lprAUC_rf_performance", tbl.ext
+  )
+)
+
+auc.data <- melt(
+  data = sample.dt[
+    , .(
+      light = max(LPR.light.auc, na.rm = T), 
+      dark = max(LPR.dark.auc, na.rm = T)
+    )
+  ],
+  variable.name = "Cycle",
+  value.name = "Max.AUC"
+) %>% suppressWarnings()
+rf.perform <- copy(lpr.rmses.dt)[auc.data, on = "Cycle"]
+rf.perform[, Relative.to.range := paste0(round(RMSE / Max.AUC * 100, 2), "%")]
+rf.perform[, Taxa.set := str_replace(Taxa.set, "_", "-")]
+names(rf.perform) <- str_replace_all(names(rf.perform), "\\.", " ")
+
+kable(
+  rf.perform, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(0, 0, 3, 2, 0), 
+  align = c("c", "c", "r", "r", "l")
+) %>% 
+  save_kable(file = tbl.file, self_contained = F)
+```
+
+Utilizing the significantly important taxa from the random forest models, we wanted to determine if there were specific taxa that could significantly predict zebrafish behavior in either B*a*P-dependent {fig_lprAUC_lmes_sigTaxa_mainEffects} or -independent manner {fig_lprAUC_lmes_sigTaxa_intrxns}. To do so, we generated multivariate linear regression models, predicting LPR AUC values from individual taxon abundances. We identified a number of taxa that associated with increased LPR activity, regardless of B*a*P exposure. For the light cycle, these included an ASV (ASV00154) in the Methylobacterium-Methylorubrum genus, an ASV (ASV00071) in the Methylophyilus genus, and an ASV (ASV00006) in the Pseudomonas genus. The first two of these, while statistically significant, may primarily be driven by a few outliers. The last however, appears to be a very robust association and this ASV may be a potential target for reducing hyperactivity in zebrafish {fig_lprAUC_lmes_sigTaxa_mainEffectsA}. For the dark cycle, we identified an ASV (ASV00003) in the Shewanella genus and the Shewanellaceae family, as well as the Afipia (Xanthobacteraceae) genus as having positive associations with greater larval activity. We also identified a number of taxa associated with reduced LPR AUCs, in particular the genera Paucibacter (Comamonadaceae), Undibacterium (Oxalobacteraceae), Novosphingobium (Sphingomonadaceae); the classes Bdellovibrionia (Bdellovibrionota) and Fusobacteriia (Fusobacteriota); and the proposed phylum WPS2 {fig_lprAUC_lmes_sigTaxa_mainEffectsB}. This taxa may possibily be useful as probiotics for ameliorating the effects behavioral effects of B*a*P.
+
+```{r lprAUCs-lme-examples}
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", 
+    get.tracking.num("figure") + 1,"_lprAUC_lmes_sigTaxa_examples", 
+    plot.ext
+  )
+)
+
+fig.caption <- "Scatter plots of taxon abundance by LPR dark cycle AUCs. (A) Examples of taxa with significant main effects , i.e., the predicted relationship is the same for all B*a*P exposures. (B) Examples of taxa with significant interactions, i.e., the predicted relationship is different for different levels of B*a*P exposure. For both panels, signficance indicates *p* < 0.05., and lines indicate estimated regression relationships from models, colored by B*a*P exposure."
+
+lme.sig.print <- copy(lm.sig.dt)
+taxonomy.dt <- taxa.data.table(ps.processed) %>%
+  setkey(Taxon)
+label.dt <- lapply(unique(lme.sig.print$Taxon), function(taxon) {
+  if (str_detect(taxon, "ASV")) {
+    label <- paste(taxonomy.dt[taxon]$Genus, taxon, sep = "|") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      )
+  } else {
+    label <- lapply(str_split(taxon, "\\."), tail, 2)[[1]] %>%
+      str_remove_all("[pcofg]__") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      ) %>%
+      str_replace_all("WPS-2", "WPS2") %>%
+      paste(collapse = "|")
+  }
+  data.table(Taxon = taxon, Label = label) %>% return()
+}) %>% rbindlist()
+setkey(label.dt, Taxon)
+
+
+agg.dt <- aggregate.taxa(ps.processed)
+names(agg.dt) <- str_replace_all(names(agg.dt), "WPS-2", "WPS2")
+label.dt$Taxon <- str_replace_all(label.dt$Taxon, "WPS-2", "WPS2")
+cycle <- "dark"
+smpl.cols <- c(
+  "Sample", 
+  "BaP_uM", 
+  str_subset(names(sample.dt), paste0("LPR.", cycle))
+)
+plot.taxa <- main.effects.taxa[[cycle]] %>%
+  str_remove("-")
+main.eff.examples <- c(2:6, 8)
+taxa.cols <- c("Sample", plot.taxa[main.eff.examples]) 
+mainEff.pred.dt0 <- copy(lpr.sig.lms[[cycle]]$PRD)
+mainEff.pred.dt0[, Taxon := str_replace_all(Taxon, "(c__|o__|f__|g__)", ".\\1")]
+mainEff.pred.dt <- merge(
+  mainEff.pred.dt0[Taxon %in% plot.taxa[main.eff.examples]],
+  label.dt,
+  by = "Taxon"
+)
+names(mainEff.pred.dt)[which(str_detect(names(mainEff.pred.dt), "auc"))] <- "AUC"
+
+mainEf.dt <- merge(
+  sample.dt[, ..smpl.cols],
+  agg.dt[, ..taxa.cols],
+  by = "Sample"
+) %>%
+  melt(
+    measure.vars = smpl.cols[3],
+    variable.name = "Cycle",
+    value.name = "AUC"
+  ) %>%
+  melt(
+    measure.vars = plot.taxa[main.eff.examples],
+    variable.name = "Taxon",
+    value.name = "Abundance"
+  ) %>%
+  merge(
+    label.dt,
+    by = "Taxon"
+  )
+
+plot.taxa <- interactions.taxa[[cycle]]
+intrxn.examples <- c(2:5, 8)
+taxa.cols <- c("Sample", plot.taxa[intrxn.examples])
+
+intrxns.pred.dt0 <- copy(lpr.sig.lms[[cycle]]$PRD)
+intrxns.pred.dt0[, Taxon := str_replace_all(Taxon, "(c__|o__|f__|g__)", ".\\1")]
+intrxns.pred.dt <- merge(
+  intrxns.pred.dt0[Taxon %in% plot.taxa[intrxn.examples]],
+  label.dt,
+  by = "Taxon"
+)
+names(intrxns.pred.dt)[which(str_detect(names(intrxns.pred.dt), "auc"))] <- "AUC"
+
+intrxns.dt <- merge(
+  sample.dt[, ..smpl.cols],
+  agg.dt[, ..taxa.cols],
+  by = "Sample"
+) %>%
+  melt(
+    measure.vars = smpl.cols[3],
+    variable.name = "Cycle",
+    value.name = "AUC"
+  ) %>%
+  melt(
+    measure.vars = plot.taxa[intrxn.examples],
+    variable.name = "Taxon",
+    value.name = "Abundance"
+  ) %>%
+  merge(
+    label.dt,
+    by = "Taxon"
+  )
+intrxns.dt[, Cycle := str_remove_all(Cycle, "LPR|auc|\\.")]
+
+list(
+  { # main effects
+    ggplot(mainEf.dt, aes(x = Abundance, y = AUC)) + 
+      geom_point() + 
+      geom_line(data = mainEff.pred.dt, aes(color = as.factor(BaP_uM))) +
+      bap.color.scale + 
+      facet_wrap(~ Label, scales = "free_x")
+  },
+  { # interactions
+    ggplot(intrxns.dt, aes(x = Abundance, y = AUC, color = as.factor(BaP_uM))) + 
+      geom_point() + 
+      geom_line(data = intrxns.pred.dt) +
+      bap.color.scale + 
+      facet_wrap(~ Label, scales = "free_x")
+  }
+) %>% 
+  plot_grid(
+    plotlist = ., 
+    nrow = 1, 
+    align = "h",
+    axis = "tb",
+    labels = "AUTO"
+  ) %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width * 2.5,
+    height = img.height * 1,
+    dpi = img.dpi
+  )
+make.inline.fig(filename = fig.file, caption = fig.caption)
+```
+
+We also identified taxa whose association with larval activity depended on B*a*P exposure (significant interaction term). For the light cycle, we identified just one taxon, ASV00067, in the genus Pseudoxanthomonas, which had a postivie relationship with LPR AUC value for all B*a*P exposure levels, expect 10 µM {fig_lprAUC_lmes_sigTaxa_intrxnsA}. For the dark cycle, we identified a number of related taxa that had a negative association with larval activity at 0 µM B*a*P, but this relationship became increasingly more positive with increasing B*a*P exposure. These taxa include two genera, Blautia and an undefined genus, both in the Lachnospiraceae family; the Lachnospiraceae family (Clostridia), and the Clostridia class (Firmicutes) {fig_lprAUC_lmes_sigTaxa_intrxnsB}. These taxa, perhaps, represent taxa that directly contribute to the effects of B*a*P on zebrafish behavior either through the metabolism of B*a*P that produces other toxic derivatives, or through the production of other metabolites that exacerbate the direct effects of B*a*P.
+
+```{r lprAUCs-lme-stats}
+tbl.caption <- supp.tbl.caption(
+  "Linear mixed-effects regression models predicting LPR AUC values from individual taxon abundances and B*a*P exposure. Interactions terms between taxon abundance and B*a*P exposure wer only included if that term significantly improved the model."
+)
+
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppTbl", get.tracking.num("supplemental table"), "_lprAUC_lmes", tbl.ext
+  )
+)
+lm.sig.dt[
+  !str_detect(Term, "Intercept"), 
+  Term := str_remove_all(str_replace_all(Term, "BaP_uM", "BaP"), "I\\(|\\)")
+]
+lm.sig.dt[, Sig := ifelse(P.value <= 0.05, "*", "")]
+setcolorder(lm.sig.dt, c(9, 11, 1:8, 12, 10))
+kable(
+  lm.sig.dt, 
+  row.names = F, 
+  caption = tbl.caption, 
+  digits = c(rep(0, 5), 2, 2, 0, 2, 3, 0, 3), 
+  align = c(rep("c", 4), rep("r", 6), "l", "r")
+) %>% 
+  collapse_rows(columns = c(1:4, ncol(lm.sig.dt))) %>% 
+  save_kable(file = tbl.file, self_contained = F)
+```
+
+We also performed a mediation analysis, wherein we attempted to determine if any taxa causally mediate the effects of BaP exposure on the behavior of larval zebrafish. {Need more language on how to interpret.}
+
+```{r lprAUCs-mediation}
+tbl.caption <- supp.tbl.caption(
+  "Results of causal mediation analysis. **ACME**: average causal mediation effect; the expected difference in the potential outcome when the mediator took the value that would realize under the treatment condition as opposed to the control condition, while the treatment status itself is held constant. **ADE**: average direct effect; the expected difference in the potential outcome when the treatment is changed but the mediator is held constant at the value that would realize if the treatment equals a particular value of treatment. **Total effect**: ACME + ADE. **Prop. Mediated**: proportions mediated; the size of the average causal mediation effects relative to the total effect"
+)
+
+tbl.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppTbl", get.tracking.num("supplemental table"), "_lprAUC_lmes", tbl.ext
+  )
+)
+
+label.dt <- lapply(unique(lpr.sig.mediation$Taxon), function(taxon) {
+  if (str_detect(taxon, "ASV")) {
+    label <- paste(taxonomy.dt[taxon]$Genus, taxon, sep = "|") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      )
+  } else {
+    label <- lapply(str_split(taxon, "\\."), tail, 2)[[1]] %>%
+      str_remove_all("[pcofg]__") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      ) %>%
+      paste(collapse = "|")
+  }
+  data.table(Taxon = taxon, Label = label) %>% return()
+}) %>% rbindlist()
+setkey(label.dt, Taxon)
+mediation.print <- label.dt[lpr.sig.mediation, on = "Taxon"]
+mediation.print[, Taxon := NULL]
+names(mediation.print) <- c(
+  "Taxon", "Term", "Estimate", "Lower 95% C.I.", "Upper 95% C.I.", "P-value"
+)
+mediation.print[, Sig := ifelse(`P-value` <= 0.05, "*", "")]
+```
+
+### B*a*P exposure alters the associations between microbial taxa
+
+We utilized the Sparse InversE Covariance estimation for Ecological Association and Statistical Inference (SPIEC-EASI) method to infer associations between taxa at taxonomic levels from ASV to phylum for each B*a*P exposure concentration. We visualized the microbe-microbe associations for micorbial families in {fig_spiec_easi_network}. In general, B*a*P exposure increased the number of higher connected nodes (more nodes with greater degree) and increased the sized of the maximal connected component {suppFig_spiec_easi_metrics}.
+
+```{r spiec-easi-family-network}
+tax.lvl <- "family"
+
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "fig", 
+    get.tracking.num("figure") + 1, "_spiec_easi_network", 
+    plot.ext
+  )
+)
+
+fig.caption <- paste0(toTitleCase(tax.lvl), "-level SPIEC-EASI network of microbe-microbiome associations in microbiome exposed to 0 or 5 µM B*a*P. Nodes indicate individual taxa and lines indicate significant associations. Nodes and lines are colored by ", tax.lvl, ".")
+
+
+tax.lvl.ps <- readRDS(
+  file.path(
+    dirs$save, 
+    paste0("phyloseq_goodBatches_", tax.lvl,"Glom.rds")
+  )
+)
+se.file.name <- paste0(
+  "spiecEasi_", 
+  levels.dt[tax.lvl]$Plural, 
+  "_byBaP_MB_lmr1e2_nlambda20_results_list.rds"
+)
+se.list <- list.files(
+  path = dirs$save, 
+  pattern = se.file.name, 
+  recursive = TRUE, 
+  full.names = TRUE
+) %>% readRDS()
+
+lapply(names(se.list)[c(1,3)], function(conc) {
+  conc.int <- str_remove(conc, "uM") %>% as.numeric()
+  conc.ps <- prune_samples(
+    sample.data.table(tax.lvl.ps)[BaP_uM == conc.int]$Sample, 
+    tax.lvl.ps
+  ) %>%
+    prune_taxa(taxa_sums(.) > 0, .)
+  ig2.mb <- adj2igraph(
+    getRefit(se.list[[conc]]),
+    vertex.attr = list(name = taxa_names(conc.ps))
+  )
+  {
+    plot_network(
+      ig2.mb, 
+      conc.ps, 
+      type = 'taxa', 
+      color = levels.dt[tax.lvl]$Name
+    ) + 
+      labs(subtitle = paste(conc.int, "µM")) + 
+      theme(legend.position = "none")
+  } %>% return()
+}) %>% 
+  plot_grid(
+    plotlist = .,
+    nrow = 1
+  ) %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width * 2,
+    height = img.height,
+    dpi = img.dpi
+  )
+make.inline.fig(filename = fig.file, caption = fig.caption)
+```
+
+## Supplemental Figure Captions
+
+```{r bapOnly-LPR-SARL}
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppFig", 
+    get.tracking.num("supplemental figure") + 1,"_bapOnly_LPR_SARL", 
+    plot.ext
+  )
+)
+
+fig.caption <- "Plots of the differential entropy (DE) calculated per B*a*P exposure per 96-well plate per LPR cycle (dark vs light). (A) DE over time for the LPR assay. (B) AUCs of the DE plots in panel A by light and dark cycles."
+
+# Typical SARL method for plotting LPR results
+lower <- 0.05
+upper <- 1 - lower
+DE <- function(x) {
+  log(quantile(x, upper, na.rm = TRUE) - quantile(x, lower, na.rm = TRUE) + 1)
+}
+
+sarl.dt1 <- readRDS(file.path(dirs$save, "LPR_base_dt.rds"))
+sarl.dt2 <- sarl.dt1[Timepoint >= epoch.dt$Start[1]]
+sarl.dt3 <- sarl.dt2[, .(h = DE(Movement)), by = .(BaP.uM, Plate.ID, Timepoint)]
+sarl.dt4 <- sarl.dt3[, .(ave.h = mean(h)), by = .(BaP.uM, Timepoint)]
+sarl.dt4[, Sec := floor((Timepoint - 61) / 5) * 30]
+sarl.dt5 <- sarl.dt4[, .(h.sec = sum(ave.h)), by = .(BaP.uM, Sec)]
+sarl.dt3[
+  , Cycle := ifelse(
+    between(Timepoint, epoch.dt[[2]][1], epoch.dt[[3]][1]) |
+      between(Timepoint, epoch.dt[[2]][2], epoch.dt[[3]][2]) |
+      between(Timepoint, epoch.dt[[2]][3], epoch.dt[[3]][3]),
+    "light",
+    "dark"
+  ) %>% factor(levels = c("light", "dark"))
+]
+sarl.auc.dt <- sarl.dt3[
+  , .(AUC.h = trapz(Timepoint, h)), 
+  keyby = .(BaP.uM, Cycle)
+]
+list(
+  { # sarl de by time
+    ggplot(sarl.dt5, aes(x = Sec, y = h.sec)) +
+      geom_path(aes(color = as.factor(BaP.uM)), show.legend = F) + 
+      bap.color.scale +
+      labs(x = "Time (s)", y = "Differential Entropy (DE)") +
+      scale_x_continuous(expand = c(0, 0))
+  },
+  { # sarl de auc by bap
+    ggplot(sarl.auc.dt, aes(x = BaP.uM, y = AUC.h)) + 
+      geom_col(aes(fill = as.factor(BaP.uM)), position = "dodge") + 
+      bap.fill.scale + 
+      scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+      labs(y = "AUC of DE", x = "BaP (µM)") +
+      facet_wrap(~ Cycle) + 
+      theme(legend.position = "none")
+  }
+) %>% 
+  plot_grid(
+    plotlist = .,
+    nrow = 1,
+    labels = "AUTO",
+    align = "h",
+    axis = "tb",
+    rel_widths = c(1.5, 1)
+  ) %>% 
+  ggsave(
+    filename = fig.file,
+    width = img.width * 1.2,
+    height = img.height * 0.6,
+    dpi = img.dpi
+  )
+
+cat(supp.fig.caption(fig.caption), sep = "\n")
+```
+
+
+```{r bapOnly-randForest-impt-taxa}
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppFig", 
+    get.tracking.num("supplemental figure") + 1,"_bapOnly_randForest_importTaxa", 
+    plot.ext
+  )
+)
+
+fig.caption <- "Plots of the square root of abundances by B*a*P exposure for the top 20 significantly most important taxa for the random forest model (classfication) predicting B*a*P exposure from taxon abundances."
+
+taxonomy.dt <- taxa.data.table(ps.processed) %>%
+  setkey(Taxon)
+impt.dt <- copy(bap.class.impt.dt) %>%
+  .[Importance > 0] %>%
+  .[order(Importance, decreasing = T)]
+all.taxa <- impt.dt$Taxon
+abund.data <- rbindlist(bap.rf.data.list$aggregated) %>%
+  melt(id.vars = "BaP_uM", variable.name = "Taxon", value.name = "Abund")
+
+plot.data.list <- NULL
+i <- 0
+while (length(plot.data.list) < 20) {
+  i <- i + 1
+  j <- length(plot.data.list) + 1
+  dt <- abund.data[Taxon == all.taxa[i]]
+  if (length(plot.data.list) > 0) {
+    ident.abunds <- sapply(plot.data.list, function(plot.data) {
+      return(identical(dt$Abund, plot.data$Abund))
+    })
+    if (!any(ident.abunds)) {
+      plot.data.list[[j]] <- dt
+    }
+  } else {
+    plot.data.list[[j]] <- dt
+  }
+}
+plot.data <- rbindlist(plot.data.list)
+top.taxa <- unique(plot.data$Taxon)
+
+label.dt <- lapply(top.taxa, function(taxon) {
+  if (str_detect(taxon, "ASV")) {
+    label <- paste(taxonomy.dt[taxon]$Genus, taxon, sep = "|") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      )
+  } else {
+    label <- lapply(str_split(taxon, "\\."), tail, 2)[[1]] %>%
+      str_remove_all("[pcofg]__") %>%
+      str_replace(
+        "Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium", 
+        "Rhizobium"
+      ) %>%
+      paste(collapse = "|")
+  }
+  data.table(Taxon = taxon, Label = label) %>% return()
+}) %>% rbindlist()
+plots.dt <- label.dt[plot.data, on = "Taxon"]
+plots.dt[, Label := factor(Label, levels = label.dt$Label)]
+{
+  ggplot(plots.dt, aes(x = BaP_uM, y = sqrt(Abund))) + 
+    geom_quasirandom(aes(color = as.factor(BaP_uM))) + 
+    stat_summary(
+      fun.data = "mean_cl_boot", 
+      geom = "errorbar"
+    ) + 
+    bap.color.scale + 
+    facet_wrap(~ Label, scales = "free_y", nrow = 5) +
+    scale_x_continuous(breaks = c(0, 1, 5, 10)) +
+    labs(y = "Square Root of Taxon Abundance", x = "BaP (µM)") +
+    background_grid(major = "y", minor = "y") + 
+    theme(legend.position = "none")
+} %>%
+  ggsave(
+    filename = fig.file,
+    width = img.width * 2,
+    height = img.height * 1.2,
+    dpi = img.dpi
+  )
+
+cat(supp.fig.caption(fig.caption), sep = "\n")
+```
+
+```{r spiec-easi-metrics}
+fig.file <- file.path(
+  dirs$fig.plots, 
+  paste0(
+    "suppFig", 
+    get.tracking.num("supplemental figure") + 1,"_spiec_easi_metrics", 
+    plot.ext
+  )
+)
+
+fig.caption <- "Degree and maximal connected component distributions for SPIEC-EASI networks for each taxonomic level. Lines are colored by B*a*P exposure."
+
+taxonomic.lvls <- c("ASV", "genus", "family", "order", "class", "phylum")
+lapply(taxonomic.lvls, function(tax.lvl) {
+  # cat.n(tax.lvl)
+  if (tax.lvl == "ASV") {
+    tax.lvl.ps <- ps.good.batches
+  } else {
+    tax.lvl.ps <- readRDS(
+      file.path(
+        dirs$save, 
+        paste0("phyloseq_goodBatches_", tax.lvl,"Glom.rds")
+      )
+    )
+  }
+  se.file.name <- paste0(
+    "spiecEasi_", 
+    levels.dt[tax.lvl]$Plural, 
+    "_byBaP_MB_lmr1e2_nlambda20_results_list.rds"
+  )
+  se.list <- list.files(
+    path = dirs$save, 
+    pattern = se.file.name, 
+    recursive = TRUE, 
+    full.names = TRUE
+  ) %>% readRDS()
+  
+  distr.dt <- lapply(names(se.list), function(conc) {
+    ig2.mb <- adj2igraph(
+      getRefit(se.list[[conc]])
+    )
+    dd <- degree_distribution(ig2.mb)
+    d <- {0:{length(dd) - 1}}
+    cc <- component_distribution(ig2.mb)
+    c <- log10({0:{length(cc) - 1}})
+    data.table(
+      BaP.uM = str_remove(conc, "uM"),
+      Metric = c(
+        rep("Degree", length(d)), 
+        rep("log10(Maximal Connected Component)", length(c))
+      ),
+      Size = c(d, c),
+      Frequency = c(dd, cc)
+    )
+  }) %>% rbindlist()
+  {
+    ggplot(distr.dt, aes(x = Size, y = Frequency, color = BaP.uM)) +
+      geom_line() + 
+      geom_point() + 
+      bap.color.scale + 
+      facet_wrap(~ Metric, scales = "free", nrow = 1) + 
+      labs(title = toTitleCase(tax.lvl))
+  } %>% return()
+}) %>% 
+  plot_grid(plotlist = .) %>% 
+  ggsave(
+    filename = fig.file,
+    width = img.width * 2.5,
+    height = img.height * 1.5,
+    dpi = img.dpi
+  )
+
+cat(supp.fig.caption(fig.caption), sep = "\n")
+```

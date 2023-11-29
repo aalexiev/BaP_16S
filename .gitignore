@@ -1,0 +1,16 @@
+# .gitignore
+
+.DS_Store
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+Icon*
+*[Cc]ache*
+*.key
+*.gsheet
+*.gdoc
+*.pptx
+Large_files
+*tmp*
+*.svg

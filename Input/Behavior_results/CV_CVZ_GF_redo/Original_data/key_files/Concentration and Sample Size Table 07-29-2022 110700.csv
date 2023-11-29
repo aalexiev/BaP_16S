@@ -1,0 +1,5 @@
+"chemical.id","bottle.id","chemical.name","casrn","conc","units","original.sample.size","sample.size.after.QC"
+1174,"P215706","Benzo[a]pyrene","50-32-8",0,"uM",216,215
+1174,"P215706","Benzo[a]pyrene","50-32-8",1,"uM",216,213
+1174,"P215706","Benzo[a]pyrene","50-32-8",5,"uM",216,214
+1174,"P215706","Benzo[a]pyrene","50-32-8",10,"uM",216,215

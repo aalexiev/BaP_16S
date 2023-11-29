@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>table output</title>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body>
+<table>
+<caption>Supplemental Table 7. Linear regression models testing the associations between LPR AUCs (larval
+activity) and BaP exposure, microbiome diversity.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Alpha.metric </th>
+   <th style="text-align:center;"> Cycle </th>
+   <th style="text-align:center;"> Effect </th>
+   <th style="text-align:center;"> Group </th>
+   <th style="text-align:right;"> Term </th>
+   <th style="text-align:right;"> Estimate </th>
+   <th style="text-align:right;"> Std.error </th>
+   <th style="text-align:right;"> Df </th>
+   <th style="text-align:right;"> Statistic </th>
+   <th style="text-align:right;"> P.value </th>
+   <th style="text-align:left;"> Sig </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="10"> Chao1 </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.53 </td>
+   <td style="text-align:right;"> 10.62 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 10.41 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.73 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.044 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 499.63 </td>
+   <td style="text-align:right;"> 29.09 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 17.18 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.94 </td>
+   <td style="text-align:right;"> 14.11 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.93 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.17 </td>
+   <td style="text-align:right;"> 0.031 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 41.82 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 279.27 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="12"> Shannon </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.53 </td>
+   <td style="text-align:right;"> 10.62 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 10.41 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.73 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.044 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="7"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 557.43 </td>
+   <td style="text-align:right;"> 46.09 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 12.09 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 30.01 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.13 </td>
+   <td style="text-align:right;"> 0.034 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -4.52 </td>
+   <td style="text-align:right;"> 1.55 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.92 </td>
+   <td style="text-align:right;"> 0.004 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> Shannon </td>
+   <td style="text-align:right;"> -36.48 </td>
+   <td style="text-align:right;"> 22.65 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -1.61 </td>
+   <td style="text-align:right;"> 0.108 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:Shannon </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.08 </td>
+   <td style="text-align:right;"> 0.038 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 40.51 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.81 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="10"> Simpson </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.53 </td>
+   <td style="text-align:right;"> 10.62 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 10.41 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.73 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.044 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 499.63 </td>
+   <td style="text-align:right;"> 29.09 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 17.18 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.94 </td>
+   <td style="text-align:right;"> 14.11 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.93 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.17 </td>
+   <td style="text-align:right;"> 0.031 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 41.82 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 279.27 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="10"> Phylogenetic </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.53 </td>
+   <td style="text-align:right;"> 10.62 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 10.41 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.73 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.044 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 499.63 </td>
+   <td style="text-align:right;"> 29.09 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 17.18 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.94 </td>
+   <td style="text-align:right;"> 14.11 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.93 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.17 </td>
+   <td style="text-align:right;"> 0.031 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 41.82 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 279.27 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="10"> Observed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.53 </td>
+   <td style="text-align:right;"> 10.62 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 10.41 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.73 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.044 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 499.63 </td>
+   <td style="text-align:right;"> 29.09 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 17.18 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.94 </td>
+   <td style="text-align:right;"> 14.11 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.93 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -2.17 </td>
+   <td style="text-align:right;"> 0.031 </td>
+   <td style="text-align:left;"> * </td>
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="2"> ran_pars </td>
+   <td style="text-align:center;"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 41.82 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 279.27 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

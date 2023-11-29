@@ -1,0 +1,5 @@
+"chemical.id","chemical.name","casrn","conc","MO24","DP24","SM24","MORT","CRAN","AXIS","EDEM","MUSC","LTRK","BRN_","SKIN","NC__","TCHR","any.effect"
+"P215706","Benzo[a]pyrene","50-32-8",0,5,0,0,7,4,3,3,1,3,0,0,0,1,11
+"P215706","Benzo[a]pyrene","50-32-8",1,1,0,0,2,1,0,0,0,0,0,0,0,0,3
+"P215706","Benzo[a]pyrene","50-32-8",5,5,0,0,10,1,1,1,0,0,0,0,0,0,12
+"P215706","Benzo[a]pyrene","50-32-8",10,41,0,0,41,2,1,2,1,1,0,0,1,0,43

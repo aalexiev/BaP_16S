@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>table output</title>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body>
+<table>
+<caption>Supplemental Table 9. Accuracy metrics (root mean squared error [RMSE]) for random forest models
+predicting light and dark cycle LPR AUCs values from taxon abundances. Two different taxa sets
+were assess: ASV-only, i.e., just ASV abundances; and aggregated, i.e., ASVs plus then grouping
+ASVs into higher taxonomic level groups (genera, families, classes, etc) and inlcuding all those
+counts together.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Taxa set </th>
+   <th style="text-align:center;"> Cycle </th>
+   <th style="text-align:right;"> RMSE </th>
+   <th style="text-align:right;"> Max AUC </th>
+   <th style="text-align:left;"> Relative to range </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> ASV-only </td>
+   <td style="text-align:center;"> light </td>
+   <td style="text-align:right;"> 86.523 </td>
+   <td style="text-align:right;"> 536.71 </td>
+   <td style="text-align:left;"> 16.12% </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> aggregated </td>
+   <td style="text-align:center;"> light </td>
+   <td style="text-align:right;"> 86.648 </td>
+   <td style="text-align:right;"> 536.71 </td>
+   <td style="text-align:left;"> 16.14% </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ASV-only </td>
+   <td style="text-align:center;"> dark </td>
+   <td style="text-align:right;"> 286.927 </td>
+   <td style="text-align:right;"> 1446.10 </td>
+   <td style="text-align:left;"> 19.84% </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> aggregated </td>
+   <td style="text-align:center;"> dark </td>
+   <td style="text-align:right;"> 286.522 </td>
+   <td style="text-align:right;"> 1446.10 </td>
+   <td style="text-align:left;"> 19.81% </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

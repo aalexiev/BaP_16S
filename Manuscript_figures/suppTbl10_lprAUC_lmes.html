@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>table output</title>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body>
+<table>
+<caption>Supplemental Table 10. Linear mixed-effects regression models predicting LPR AUC values from
+individual taxon abundances and B*a*P exposure. Interactions terms between taxon abundance and
+B*a*P exposure wer only included if that term significantly improved the model.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Taxon </th>
+   <th style="text-align:center;"> Cycle </th>
+   <th style="text-align:center;"> Effect </th>
+   <th style="text-align:center;"> Group </th>
+   <th style="text-align:right;"> Term </th>
+   <th style="text-align:right;"> Estimate </th>
+   <th style="text-align:right;"> Std.error </th>
+   <th style="text-align:right;"> Df </th>
+   <th style="text-align:right;"> Statistic </th>
+   <th style="text-align:right;"> P.value </th>
+   <th style="text-align:left;"> Sig </th>
+   <th style="text-align:right;"> Mod.pval </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> ASV00006 </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="33"> light </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 102.32 </td>
+   <td style="text-align:right;"> 7.95 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 12.87 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.000 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 6.71 </td>
+   <td style="text-align:right;"> 4.65 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 1.44 </td>
+   <td style="text-align:right;"> 0.150 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.80 </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> -1.80 </td>
+   <td style="text-align:right;"> 0.072 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00006 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 4.29 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 1.64 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> -0.54 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.22 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.02 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> ASV00071 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 107.73 </td>
+   <td style="text-align:right;"> 9.97 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 10.81 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.008 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 7.75 </td>
+   <td style="text-align:right;"> 4.69 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.099 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.90 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> -2.01 </td>
+   <td style="text-align:right;"> 0.045 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00071 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 2.66 </td>
+   <td style="text-align:right;"> 0.008 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 15.04 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> -0.26 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 92.05 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> ASV00067 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 108.61 </td>
+   <td style="text-align:right;"> 9.51 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 11.42 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.003 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 5.81 </td>
+   <td style="text-align:right;"> 4.68 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 1.24 </td>
+   <td style="text-align:right;"> 0.215 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.68 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -1.53 </td>
+   <td style="text-align:right;"> 0.127 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00067 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> 2.92 </td>
+   <td style="text-align:right;"> 0.004 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:ASV00067 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 398 </td>
+   <td style="text-align:right;"> -3.00 </td>
+   <td style="text-align:right;"> 0.003 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 13.32 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> -0.15 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.43 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 91.93 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> ASV00154 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 110.18 </td>
+   <td style="text-align:right;"> 10.54 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 10.45 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.007 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 5.65 </td>
+   <td style="text-align:right;"> 4.67 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 1.21 </td>
+   <td style="text-align:right;"> 0.227 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -0.71 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> -1.60 </td>
+   <td style="text-align:right;"> 0.111 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00154 </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 399 </td>
+   <td style="text-align:right;"> 2.69 </td>
+   <td style="text-align:right;"> 0.007 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 17.41 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.26 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 91.95 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Bdellovibrionota.c__Bdellovibrionia </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="144"> dark </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 503.32 </td>
+   <td style="text-align:right;"> 28.04 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 17.95 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.046 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.39 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.01 </td>
+   <td style="text-align:right;"> 0.045 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.93 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.17 </td>
+   <td style="text-align:right;"> 0.030 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Bdellovibrionotac__Bdellovibrionia </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.00 </td>
+   <td style="text-align:right;"> 0.046 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 37.33 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.59 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.57 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__WPS-2 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 503.53 </td>
+   <td style="text-align:right;"> 27.17 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 18.53 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.040 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.06 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 1.99 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.89 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.14 </td>
+   <td style="text-align:right;"> 0.033 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__WPS2 </td>
+   <td style="text-align:right;"> -0.89 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.05 </td>
+   <td style="text-align:right;"> 0.041 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 33.24 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.46 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.68 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Proteobacteria.c__Gammaproteobacteria.o__Alteromonadales.f__Shewanellaceae </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 475.49 </td>
+   <td style="text-align:right;"> 31.52 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 15.08 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.014 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 29.68 </td>
+   <td style="text-align:right;"> 14.04 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.11 </td>
+   <td style="text-align:right;"> 0.035 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.98 </td>
+   <td style="text-align:right;"> 1.34 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.22 </td>
+   <td style="text-align:right;"> 0.027 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Gammaproteobacteriao__Alteromonadalesf__Shewanellaceae </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.50 </td>
+   <td style="text-align:right;"> 0.013 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 45.98 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.86 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.77 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> ASV00003 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 482.11 </td>
+   <td style="text-align:right;"> 29.57 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 16.31 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.024 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 29.18 </td>
+   <td style="text-align:right;"> 14.07 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.07 </td>
+   <td style="text-align:right;"> 0.039 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.99 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.22 </td>
+   <td style="text-align:right;"> 0.027 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00003 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.27 </td>
+   <td style="text-align:right;"> 0.024 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 40.04 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.20 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.38 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Proteobacteria.c__Alphaproteobacteria.o__Rhizobiales.f__Xanthobacteraceae.g__Afipia </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 492.11 </td>
+   <td style="text-align:right;"> 26.51 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 18.56 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.035 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.15 </td>
+   <td style="text-align:right;"> 14.15 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 1.92 </td>
+   <td style="text-align:right;"> 0.056 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.83 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.10 </td>
+   <td style="text-align:right;"> 0.037 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Alphaproteobacteriao__Rhizobialesf__Xanthobacteraceaeg__Afipia </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.11 </td>
+   <td style="text-align:right;"> 0.035 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 29.50 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.97 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.56 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Proteobacteria.c__Alphaproteobacteria.o__Rhodospirillales </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 502.48 </td>
+   <td style="text-align:right;"> 28.59 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 17.57 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="26"> 0.005 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 30.79 </td>
+   <td style="text-align:right;"> 14.07 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.19 </td>
+   <td style="text-align:right;"> 0.029 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.27 </td>
+   <td style="text-align:right;"> 1.34 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.44 </td>
+   <td style="text-align:right;"> 0.015 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Alphaproteobacteriao__Rhodospirillales </td>
+   <td style="text-align:right;"> -0.16 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -3.13 </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Proteobacteriac__Alphaproteobacteriao__Rhodospirillales </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.85 </td>
+   <td style="text-align:right;"> 0.005 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 40.53 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 4.23 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 275.22 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae_Genus </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 505.82 </td>
+   <td style="text-align:right;"> 27.40 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 18.46 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.87 </td>
+   <td style="text-align:right;"> 14.06 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.15 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.34 </td>
+   <td style="text-align:right;"> 0.020 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceaeg__Lachnospiraceae_Genus </td>
+   <td style="text-align:right;"> -0.12 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -1.80 </td>
+   <td style="text-align:right;"> 0.073 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceaeg__Lachnospiraceae_Genus </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.82 </td>
+   <td style="text-align:right;"> 0.005 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 33.65 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.82 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.49 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Proteobacteria.c__Gammaproteobacteria.o__Burkholderiales.f__Comamonadaceae.g__Paucibacter </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 502.38 </td>
+   <td style="text-align:right;"> 28.18 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 17.83 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 30.02 </td>
+   <td style="text-align:right;"> 14.06 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.13 </td>
+   <td style="text-align:right;"> 0.033 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.09 </td>
+   <td style="text-align:right;"> 1.34 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.30 </td>
+   <td style="text-align:right;"> 0.022 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Gammaproteobacteriao__Burkholderialesf__Comamonadaceaeg__Paucibacter </td>
+   <td style="text-align:right;"> -1.75 </td>
+   <td style="text-align:right;"> 0.62 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.81 </td>
+   <td style="text-align:right;"> 0.005 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 38.67 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.61 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.07 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Firmicutes.c__Clostridia </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 509.77 </td>
+   <td style="text-align:right;"> 27.31 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 18.67 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.002 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 29.39 </td>
+   <td style="text-align:right;"> 14.04 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.09 </td>
+   <td style="text-align:right;"> 0.037 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.36 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.49 </td>
+   <td style="text-align:right;"> 0.013 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Firmicutesc__Clostridia </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.47 </td>
+   <td style="text-align:right;"> 0.014 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Firmicutesc__Clostridia </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 3.12 </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 33.05 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.87 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.00 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Proteobacteria.c__Gammaproteobacteria.o__Burkholderiales.f__Oxalobacteraceae.g__Undibacterium </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 508.58 </td>
+   <td style="text-align:right;"> 27.66 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 18.39 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.004 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.52 </td>
+   <td style="text-align:right;"> 14.05 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.03 </td>
+   <td style="text-align:right;"> 0.043 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.98 </td>
+   <td style="text-align:right;"> 1.34 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.22 </td>
+   <td style="text-align:right;"> 0.027 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Gammaproteobacteriao__Burkholderialesf__Oxalobacteraceaeg__Undibacterium </td>
+   <td style="text-align:right;"> -0.58 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.90 </td>
+   <td style="text-align:right;"> 0.004 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 35.60 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.73 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.03 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Blautia </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 505.85 </td>
+   <td style="text-align:right;"> 27.81 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 18.19 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.003 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.40 </td>
+   <td style="text-align:right;"> 14.01 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.03 </td>
+   <td style="text-align:right;"> 0.043 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.21 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.38 </td>
+   <td style="text-align:right;"> 0.018 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceaeg__Blautia </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -1.78 </td>
+   <td style="text-align:right;"> 0.075 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceaeg__Blautia </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 3.02 </td>
+   <td style="text-align:right;"> 0.003 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 35.73 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 1.12 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.45 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Fusobacteriota.c__Fusobacteriia </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 502.81 </td>
+   <td style="text-align:right;"> 27.49 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 18.29 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.043 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.02 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 1.98 </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.91 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.16 </td>
+   <td style="text-align:right;"> 0.031 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Fusobacteriotac__Fusobacteriia </td>
+   <td style="text-align:right;"> -0.12 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.02 </td>
+   <td style="text-align:right;"> 0.045 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 34.96 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.62 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.53 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 509.04 </td>
+   <td style="text-align:right;"> 27.43 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 18.56 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.002 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.88 </td>
+   <td style="text-align:right;"> 14.03 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.06 </td>
+   <td style="text-align:right;"> 0.040 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.28 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.44 </td>
+   <td style="text-align:right;"> 0.015 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceae </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.29 </td>
+   <td style="text-align:right;"> 0.023 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Firmicutesc__Clostridiao__Lachnospiralesf__Lachnospiraceae </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 3.05 </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 33.55 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.51 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.26 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> ASV02217 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 502.78 </td>
+   <td style="text-align:right;"> 28.05 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 17.92 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.039 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.56 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 1.95 </td>
+   <td style="text-align:right;"> 0.052 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.97 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.20 </td>
+   <td style="text-align:right;"> 0.029 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV02217 </td>
+   <td style="text-align:right;"> -54.54 </td>
+   <td style="text-align:right;"> 33.31 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -1.64 </td>
+   <td style="text-align:right;"> 0.102 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:ASV02217 </td>
+   <td style="text-align:right;"> 1.61 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.06 </td>
+   <td style="text-align:right;"> 0.040 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 37.28 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.16 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.28 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> p__Actinobacteriota.c__Actinobacteria.o__Frankiales.f__Nakamurellaceae </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 495.59 </td>
+   <td style="text-align:right;"> 29.08 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 17.04 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.033 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 27.09 </td>
+   <td style="text-align:right;"> 14.06 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 1.93 </td>
+   <td style="text-align:right;"> 0.055 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -2.81 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.09 </td>
+   <td style="text-align:right;"> 0.037 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Actinobacteriotac__Actinobacteriao__Frankialesf__Nakamurellaceae </td>
+   <td style="text-align:right;"> 5.66 </td>
+   <td style="text-align:right;"> 2.16 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.63 </td>
+   <td style="text-align:right;"> 0.009 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:p__Actinobacteriotac__Actinobacteriao__Frankialesf__Nakamurellaceae </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.14 </td>
+   <td style="text-align:right;"> 0.033 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 42.11 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.68 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 276.49 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="9"> ASV00132 </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="5">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 500.28 </td>
+   <td style="text-align:right;"> 27.99 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 17.88 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="9"> 0.037 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 28.83 </td>
+   <td style="text-align:right;"> 14.21 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.03 </td>
+   <td style="text-align:right;"> 0.043 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.10 </td>
+   <td style="text-align:right;"> 1.36 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -2.28 </td>
+   <td style="text-align:right;"> 0.023 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> ASV00132 </td>
+   <td style="text-align:right;"> -0.63 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> -1.15 </td>
+   <td style="text-align:right;"> 0.250 </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2:ASV00132 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 396 </td>
+   <td style="text-align:right;"> 2.10 </td>
+   <td style="text-align:right;"> 0.036 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 37.29 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 2.43 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.56 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="8"> p__Proteobacteria.c__Alphaproteobacteria.o__Sphingomonadales.f__Sphingomonadaceae.g__Novosphingobium </td>
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> fixed </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4">  </td>
+   <td style="text-align:right;"> (Intercept) </td>
+   <td style="text-align:right;"> 499.69 </td>
+   <td style="text-align:right;"> 27.20 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 18.37 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;vertical-align: middle !important;" rowspan="8"> 0.019 </td>
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP </td>
+   <td style="text-align:right;"> 30.08 </td>
+   <td style="text-align:right;"> 14.12 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> 2.13 </td>
+   <td style="text-align:right;"> 0.034 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> BaP^2 </td>
+   <td style="text-align:right;"> -3.10 </td>
+   <td style="text-align:right;"> 1.35 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.30 </td>
+   <td style="text-align:right;"> 0.022 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> p__Proteobacteriac__Alphaproteobacteriao__Sphingomonadalesf__Sphingomonadaceaeg__Novosphingobium </td>
+   <td style="text-align:right;"> -0.83 </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 397 </td>
+   <td style="text-align:right;"> -2.33 </td>
+   <td style="text-align:right;"> 0.020 </td>
+   <td style="text-align:left;"> * </td>
+   
+  </tr>
+  <tr>
+   
+   
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="4"> ran_pars </td>
+   <td style="text-align:center;vertical-align: middle !important;" rowspan="3"> SARL_plateID </td>
+   <td style="text-align:right;"> sd_(Intercept) </td>
+   <td style="text-align:right;"> 34.00 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> cor_BaP_uM.(Intercept) </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   
+   <td style="text-align:right;"> sd_BaP </td>
+   <td style="text-align:right;"> 3.62 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+  <tr>
+   
+   
+   
+   <td style="text-align:center;"> Residual </td>
+   <td style="text-align:right;"> sd_Observation </td>
+   <td style="text-align:right;"> 277.13 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:left;">  </td>
+   
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
