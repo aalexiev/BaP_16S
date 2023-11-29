@@ -1,8 +1,8 @@
 Interactions between BaP exposure and the gut microbiome on behavior
 outcomes in zebrafish larvae
 ================
-Keaton Stagaman
-2021
+Author: Keaton Stagaman
+Year: 2021
 
 # Methods
 
